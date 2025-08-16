@@ -75,6 +75,13 @@
         .progress-line.completed {
             background-color: #388E3C; /* Dark green */
         }
+        .highlight-update {
+            background-color: #FFF3CD; /* Light yellow background */
+            padding: 0.2em 0.4em;
+            border-radius: 0.25rem;
+            font-weight: bold;
+            color: #856404; /* Dark yellow text */
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -97,7 +104,7 @@
                     </summary>
                     <div class="mt-4 text-gray-700 space-y-4">
                         <p>Bienvenue dans ce module dédié aux <strong>diverses cotisations sociales</strong>. Les cotisations sociales, calculées notamment sur la base des salaires bruts des salariés et versées par l'employeur, ont pour objectif de financer des prestations sociales.</p>
-                        <p>Dès l'ordonnance du 4 octobre 1945 créant la sécurité sociale, l'objectif affiché est « de garantir les travailleurs et leurs familles contre les risques de toute nature susceptibles de réduire ou de supprimer leur capacité de gain, à couvrir les charges de maternité et les charges de famille qu'ils supportent ».</p>
+                        <p>Dès l'ordonnance du 4 octobre 1945 créant la sécurité sociale, l'objectif affiché est « de garantir les travailleurs et leurs familles contre les risques de toute nature susceptibles de réduire ou de supprimer leur capacité de gain, à couvrir les charges de maternité et les charges de famille qu'ils supportent » (<a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000006509939/" target="_blank" class="text-blue-600 hover:underline">Article 1er de l'Ordonnance du 4 octobre 1945</a>).</p>
                         <p>Ce module vous guidera à travers :</p>
                         <ul class="list-disc list-inside ml-4">
                             <li>Les <strong>cotisations recouvrées par l'URSSAF</strong>.</li>
@@ -150,10 +157,10 @@
                     </summary>
                     <div class="mt-4 text-gray-700 space-y-4">
                         <h3 class="font-semibold text-lg">A. Introduction :</h3>
-                        <p>L'URSSAF (Union de Recouvrement des Cotisations de Sécurité Sociale et Allocations Familiales) est chargée de collecter les cotisations sociales salariales et patronales qui concernent les cotisations de sécurité sociale. Elle les répartit ensuite entre les quatre branches de la Sécurité Sociale : la maladie, la vieillesse, la famille et les accidents de travail / maladies professionnelles.</p>
+                        <p>L'URSSAF (Union de Recouvrement des Cotisations de Sécurité Sociale et Allocations Familiales) est chargée de collecter les cotisations sociales salariales et patronales qui concernent les cotisations de sécurité sociale. Elle les répartit ensuite entre les quatre branches de la Sécurité Sociale : la maladie, la vieillesse, la famille et les accidents de travail / maladies professionnelles (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</p>
 
                         <h3 class="font-semibold text-lg mt-4">B. Cotisation Assurance Maladie, Maternité, Décès :</h3>
-                        <p>Finance les indemnités journalières (arrêt maladie, maternité), les remboursements de frais médicaux et les pensions d'invalidité. Le taux est de 7% pour les rémunérations $\le 2,5 \times$ SMIC annuel, et de 13% pour les rémunérations $> 2,5 \times$ SMIC annuel.</p>
+                        <p>Finance les indemnités journalières (arrêt maladie, maternité), les remboursements de frais médicaux et les pensions d'invalidité. Le taux est de <span class="highlight-update">7 % pour les rémunérations $\le 2,5 \times$ SMIC annuel, et de 13 % pour les rémunérations $> 2,5 \times$ SMIC annuel</span> (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/lassurance-maladie.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</p>
                         <div class="overflow-x-auto my-2">
                             <table class="min-w-full bg-white border border-gray-200 rounded-md shadow-sm text-sm">
                                 <thead>
@@ -165,44 +172,44 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td class="py-2 px-4 border-b">Rémunération $\le 2,5$ SMIC</td><td class="py-2 px-4 border-b">0%</td><td class="py-2 px-4 border-b">7,00%</td><td class="py-2 px-4 border-b">7,00%</td></tr>
-                                    <tr><td class="py-2 px-4 border-b">Rémunération $> 2,5$ SMIC</td><td class="py-2 px-4 border-b">0%</td><td class="py-2 px-4 border-b">13,00%</td><td class="py-2 px-4 border-b">13,00%</td></tr>
+                                    <tr><td class="py-2 px-4 border-b">Rémunération $\le 2,5$ SMIC</td><td class="py-2 px-4 border-b">0 %</td><td class="py-2 px-4 border-b">7,00 %</td><td class="py-2 px-4 border-b">7,00 %</td></tr>
+                                    <tr><td class="py-2 px-4 border-b">Rémunération $> 2,5$ SMIC</td><td class="py-2 px-4 border-b">0 %</td><td class="py-2 px-4 border-b">13,00 %</td><td class="py-2 px-4 border-b">13,00 %</td></tr>
                                 </tbody>
                             </table>
                         </div>
 
                         <h3 class="font-semibold text-lg mt-4">C. Contribution Solidarité Autonomie (CSA) :</h3>
-                        <p>Destinée à financer la Caisse nationale de solidarité pour l'autonomie des personnes âgées. Taux de 0,30% sur le salaire total brut (part patronale).</p>
+                        <p>Cette cotisation est destinée à financer la Caisse nationale de solidarité pour l'autonomie des personnes âgées et handicapées. Son taux est de <span class="highlight-update">0,30 % sur le salaire total brut (part patronale)</span>. Elle a été mise en place suite aux effets de la canicule et finance notamment la "journée de solidarité" (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/la-contribution-solidarite-auto.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</p>
 
                         <h3 class="font-semibold text-lg mt-4">D. Cotisation Vieillesse (Plafonnée et Déplafonnée) :</h3>
-                        <p>Finance le régime de retraite de base (CNAV). Calculée sur deux bases : rémunération déplafonnée (0,40% sal. / 2,02% pat.) et rémunération plafonnée (6,90% sal. / 8,55% pat.).</p>
+                        <p>Finance le régime de retraite de base (CNAV). Calculée sur deux bases : rémunération déplafonnée (<span class="highlight-update">0,40 % salariale / 2,02 % patronale</span>) et rémunération plafonnée (<span class="highlight-update">6,90 % salariale / 8,55 % patronale</span>) (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/lassurance-vieillesse.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</p>
 
                         <h3 class="font-semibold text-lg mt-4">E. Cotisation Allocation Familiale :</h3>
-                        <p>Finance les prestations versées par la CAF. Le taux réduit (3,45%) s'applique aux rémunérations $\le 3,5 \times$ SMIC annuel. Au-delà, le taux est de 5,25% (3,45% + 1,80% complément).</p>
+                        <p>Finance les prestations versées par la CAF. Le taux réduit (<span class="highlight-update">3,45 %</span>) s'applique aux rémunérations $\le 3,5 \times$ SMIC annuel. Au-delà, le taux est de <span class="highlight-update">5,25 % (3,45 % + 1,80 % complément)</span> (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/les-allocations-familiales.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</p>
 
                         <h3 class="font-semibold text-lg mt-4">F. Cotisation Accidents du Travail :</h3>
-                        <p>Finance les indemnités journalières en cas d'accident du travail/maladie professionnelle. Le taux est déterminé par la CARSAT et dépend de l'effectif et de l'activité de l'entreprise (tarification forfaitaire, mixte ou réelle).</p>
+                        <p>Finance les indemnités journalières en cas d'accident du travail/maladie professionnelle. Le taux est déterminé par la CARSAT et dépend de l'effectif et de l'activité de l'entreprise (tarification forfaitaire, mixte ou réelle) (<a href="https://www.ameli.fr/entreprise/vos-demarches/cotisations-accidents-travail-maladies-professionnelles/connaitre-taux-cotisation" target="_blank" class="text-blue-600 hover:underline">Source : Ameli.fr</a>).</p>
 
                         <h3 class="font-semibold text-lg mt-4">G. Cotisation Fonds National d'Aide au Logement (FNAL) :</h3>
-                        <p>Finance l'allocation logement. Taux de 0,10% sur salaire plafonné pour entreprises de moins de 50 salariés, et 0,50% sur salaire total brut pour 50 salariés et plus.</p>
+                        <p>Finance l'allocation logement. Taux de <span class="highlight-update">0,10 % sur salaire plafonné pour entreprises de moins de 50 salariés, et 0,50 % sur salaire total brut pour 50 salariés et plus</span> (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/la-contribution-au-fonds-nationa.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</p>
 
                         <h3 class="font-semibold text-lg mt-4">H. Versement Mobilité (VM) et VM Additionnel :</h3>
-                        <p>Participation des employeurs de 11 salariés et plus au financement des transports en commun. Taux variable selon la zone géographique, appliqué sur le salaire brut.</p>
+                        <p>Participation des employeurs de 11 salariés et plus au financement des transports en commun. Taux variable selon la zone géographique, appliqué sur le salaire brut (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/le-versement-mobilite.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</p>
 
                         <h3 class="font-semibold text-lg mt-4">I. Forfait Social (8%, 10%, 16%, 20%) :</h3>
-                        <p>Cotisation uniquement à la charge de l'employeur, appliquée sur certains avantages ou rémunérations non soumis aux cotisations de Sécurité Sociale mais soumis à CSG. Les taux varient selon la nature de l'avantage (ex: 8% sur prévoyance/mutuelle patronale, 16% sur Pereco sous conditions, 20% sur intéressement/participation).</p>
+                        <p>Cotisation uniquement à la charge de l'employeur, appliquée sur certains avantages ou rémunérations non soumis aux cotisations de Sécurité Sociale mais soumis à CSG. Les taux varient selon la nature de l'avantage (<span class="highlight-update">ex: 8 % sur prévoyance/mutuelle patronale, 16 % sur Pereco sous conditions, 20 % sur intéressement/participation</span>) (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/le-forfait-social.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</p>
 
                         <h3 class="font-semibold text-lg mt-4">M. Contribution au Dialogue Social :</h3>
-                        <p>Cotisation patronale (0,016%) sur les salaires bruts, destinée au financement des organisations syndicales et patronales.</p>
+                        <p>Cotisation patronale (<span class="highlight-update">0,016 %</span>) sur les salaires bruts, destinée au financement des organisations syndicales et patronales (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/la-contribution-au-dialogue-soci.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</p>
 
                         <h3 class="font-semibold text-lg mt-4">N. Contribution Sociale Généralisée (CSG) et Contribution au Remboursement de la Dette Sociale (CRDS) :</h3>
-                        <p>Contributions uniquement salariales déduites du salaire brut. La CSG finance l'assurance maladie, prestations familiales, etc. La CRDS finance la Caisse d'Amortissement de la Dette Sociale. Elles s'appliquent sur le salaire brut abattu de 1,75% (dans certaines limites).</p>
+                        <p>Contributions uniquement salariales déduites du salaire brut. La CSG finance l'assurance maladie, prestations familiales, etc. La CRDS finance la Caisse d'Amortissement de la Dette Sociale. Elles s'appliquent sur le salaire brut abattu de <span class="highlight-update">1,75 %</span> (dans certaines limites) (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/la-csg-crds.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</p>
 
                         <h3 class="font-semibold text-lg mt-4">O. Cotisation Assurance Chômage :</h3>
-                        <p>Cotisation uniquement patronale (4,05% sur salaire brut, limité à 4x PMSS) finançant les indemnités chômage versées par France Travail. Un système de "bonus-malus" peut moduler ce taux.</p>
+                        <p>Cotisation uniquement patronale (<span class="highlight-update">4,05 %</span> sur salaire brut, limité à 4x PMSS) finançant les indemnités chômage versées par France Travail. Un système de "bonus-malus" peut moduler ce taux (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/lassurance-chomage.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</p>
 
                         <h3 class="font-semibold text-lg mt-4">P. Cotisation AGS :</h3>
-                        <p>Cotisation purement patronale (0,25% sur salaire brut, limité à 4x PMSS) finançant l'assurance de garantie des salaires, qui permet de rémunérer les salariés en cas de défaillance de l'entreprise.</p>
+                        <p>Cotisation purement patronale (<span class="highlight-update">0,25 %</span> sur salaire brut, limité à 4x PMSS) finançant l'assurance de garantie des salaires, qui permet de rémunérer les salariés en cas de défaillance de l'entreprise (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/lags.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</p>
                     </div>
                 </details>
                 <div class="mini-quiz-area mt-6 p-4 rounded-lg" style="background-color: var(--accent-light-color);" id="mini-quiz-cotisations-urssaf">
@@ -220,7 +227,7 @@
                     </summary>
                     <div class="mt-4 text-gray-700 space-y-4">
                         <h3 class="font-semibold text-lg">A. Introduction :</h3>
-                        <p>L'AGIRC-ARRCO est le régime de retraite complémentaire obligatoire pour tous les salariés du secteur privé ou agricole (cadres et non-cadres) depuis la fusion des régimes AGIRC et ARRCO en janvier 2019. Ces cotisations financent les pensions de retraite complémentaires.</p>
+                        <p>L'AGIRC-ARRCO est le régime de retraite complémentaire obligatoire pour tous les salariés du secteur privé ou agricole (cadres et non-cadres) depuis la fusion des régimes AGIRC et ARRCO en janvier 2019. Ces cotisations financent les pensions de retraite complémentaires (<a href="https://www.agirc-arrco.fr/particuliers/comprendre-ma-retraite/le-regime-agirc-arrco" target="_blank" class="text-blue-600 hover:underline">Source : AGIRC-ARRCO</a>).</p>
 
                         <h3 class="font-semibold text-lg mt-4">B. Cotisations AGIRC-ARRCO pour les salariés non-cadres et cadres :</h3>
                         <p>L'AGIRC-ARRCO prélève trois cotisations principales :</p>
@@ -240,19 +247,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td class="py-2 px-4 border-b">T1</td><td class="py-2 px-4 border-b">4,72%</td><td class="py-2 px-4 border-b">3,15%</td><td class="py-2 px-4 border-b">7,87%</td></tr>
-                                    <tr><td class="py-2 px-4 border-b">T2</td><td class="py-2 px-4 border-b">12,95%</td><td class="py-2 px-4 border-b">8,64%</td><td class="py-2 px-4 border-b">21,59%</td></tr>
-                                    <tr><td class="py-2 px-4 border-b">CEG T1</td><td class="py-2 px-4 border-b">1,29%</td><td class="py-2 px-4 border-b">0,86%</td><td class="py-2 px-4 border-b">2,15%</td></tr>
-                                    <tr><td class="py-2 px-4 border-b">CEG T2</td><td class="py-2 px-4 border-b">1,62%</td><td class="py-2 px-4 border-b">1,08%</td><td class="py-2 px-4 border-b">2,70%</td></tr>
-                                    <tr><td class="py-2 px-4 border-b">CET</td><td class="py-2 px-4 border-b">0,21%</td><td class="py-2 px-4 border-b">0,14%</td><td class="py-2 px-4 border-b">0,35%</td></tr>
+                                    <tr><td class="py-2 px-4 border-b">T1</td><td class="py-2 px-4 border-b">4,72 %</td><td class="py-2 px-4 border-b">3,15 %</td><td class="py-2 px-4 border-b">7,87 %</td></tr>
+                                    <tr><td class="py-2 px-4 border-b">T2</td><td class="py-2 px-4 border-b">12,95 %</td><td class="py-2 px-4 border-b">8,64 %</td><td class="py-2 px-4 border-b">21,59 %</td></tr>
+                                    <tr><td class="py-2 px-4 border-b">CEG T1</td><td class="py-2 px-4 border-b">1,29 %</td><td class="py-2 px-4 border-b">0,86 %</td><td class="py-2 px-4 border-b">2,15 %</td></tr>
+                                    <tr><td class="py-2 px-4 border-b">CEG T2</td><td class="py-2 px-4 border-b">1,62 %</td><td class="py-2 px-4 border-b">1,08 %</td><td class="py-2 px-4 border-b">2,70 %</td></tr>
+                                    <tr><td class="py-2 px-4 border-b">CET</td><td class="py-2 px-4 border-b">0,21 %</td><td class="py-2 px-4 border-b">0,14 %</td><td class="py-2 px-4 border-b">0,35 %</td></tr>
                                 </tbody>
                             </table>
                         </div>
+                        <p class="italic mt-2">Ces taux sont ceux en vigueur pour 2024 (<a href="https://www.agirc-arrco.fr/employeurs/vos-cotisations/les-taux-de-cotisation-agirc-arrco" target="_blank" class="text-blue-600 hover:underline">Source : AGIRC-ARRCO</a>).</p>
 
                         <h3 class="font-semibold text-lg mt-4">C. Cotisations AGIRC-ARRCO pour les salariés cadres (en plus) :</h3>
                         <ul class="list-disc list-inside ml-4">
-                            <li>La <strong>cotisation prévoyance Assurance décès cadre</strong> (article 4 et 4 bis de la convention collective nationale de retraite et de prévoyance des cadres du 14 mars 1947) : obligatoire, minimum de 1,50% sur le salaire plafonné (part patronale uniquement). Finance un capital décès pour les ayants droit.</li>
-                            <li>La <strong>cotisation APEC</strong> (Association Pour l'Emploi des Cadres) : cotisation mensuelle (0,036% employeur / 0,024% salarié) prélevée sur les salaires des cadres, limitée à 4x PMSS.</li>
+                            <li>La <strong>cotisation prévoyance Assurance décès cadre</strong> (<a href="https://www.agirc-arrco.fr/particuliers/comprendre-ma-retraite/les-garanties-prevoyance-des-cadres" target="_blank" class="text-blue-600 hover:underline">Article 4 et 4 bis de la convention collective nationale de retraite et de prévoyance des cadres du 14 mars 1947</a>) : obligatoire, minimum de <span class="highlight-update">1,50 % sur le salaire plafonné (part patronale uniquement)</span>. Finance un capital décès pour les ayants droit.</li>
+                            <li>La <strong>cotisation APEC</strong> (Association Pour l'Emploi des Cadres) : cotisation mensuelle (<span class="highlight-update">0,036 % employeur / 0,024 % salarié</span>) prélevée sur les salaires des cadres, limitée à 4x PMSS (<a href="https://www.apec.fr/recruteur/recruter-cadres/cotisations-apec.html" target="_blank" class="text-blue-600 hover:underline">Source : APEC</a>).</li>
                         </ul>
                     </div>
                 </details>
@@ -272,26 +280,26 @@
                     <div class="mt-4 text-gray-700 space-y-4">
                         <h3 class="font-semibold text-lg">A. La Mutuelle Santé Obligatoire :</h3>
                         <p>Les entreprises sont obligées d'instaurer un contrat collectif de mutuelle santé pour leurs salariés. Cette couverture complète les remboursements de la Sécurité sociale.</p>
-                        <p>Conditions à respecter :</p>
+                        <p>Conditions à respecter (<a href="https://www.service-public.fr/professionnels-entreprises/vosdroits/F33754" target="_blank" class="text-blue-600 hover:underline">Source : Service-Public.fr</a>) :</p>
                         <ul class="list-disc list-inside ml-4">
-                            <li>Participation financière de l'employeur d'au moins 50% de la cotisation.</li>
+                            <li>Participation financière de l'employeur d'au moins <span class="highlight-update">50 % de la cotisation</span>.</li>
                             <li>Respect d'un socle de garanties minimales (panier de soins minimum).</li>
                             <li>Contrat obligatoire pour tous les salariés, sauf cas de dispense (déjà couvert, CDD de moins de 3 mois, temps très partiel, etc.).</li>
                         </ul>
                         <p class="italic">La cotisation patronale de participation à la mutuelle santé obligatoire est soumise à la CSG/CRDS ainsi qu'au forfait social si l'effectif de l'entreprise est de 11 salariés et plus. Elle est également imposable pour le salarié.</p>
 
                         <h3 class="font-semibold text-lg mt-4">B. Le Versement Santé (ou chèque santé) :</h3>
-                        <p>Lorsque le salarié est dispensé d'adhérer à la mutuelle collective (CDD < 3 mois ou temps très partiel), l'employeur doit proposer le Versement Santé. C'est une aide financière pour la mutuelle personnelle du salarié.</p>
+                        <p>Lorsque le salarié est dispensé d'adhérer à la mutuelle collective (CDD < 3 mois ou temps très partiel), l'employeur doit proposer le Versement Santé. C'est une aide financière pour la mutuelle personnelle du salarié (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-elements-de-remuneration/le-versement-sante.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</p>
                         <p>Conditions pour en bénéficier :</p>
                         <ul class="list-disc list-inside ml-4">
                             <li>Justifier d'une couverture responsable.</li>
                             <li>Ne pas être déjà bénéficiaire d'une couverture collective ou financée par une collectivité publique, ni de la CSS.</li>
                         </ul>
-                        <p>Le montant est le montant de référence (contribution mensuelle employeur à la mutuelle) multiplié par un coefficient (105% pour CDI, 125% pour CDD/intérim). Il ne peut être inférieur à un minimum légal (20,75 € en 2024).</p>
+                        <p>Le montant est le montant de référence (contribution mensuelle employeur à la mutuelle) multiplié par un coefficient (<span class="highlight-update">105 % pour les salariés en CDI, 125 % pour les salariés en CDD ou en contrat de mission</span>). Il ne peut être inférieur à un minimum légal (<span class="highlight-update">20,75 € en 2024</span>) (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-elements-de-remuneration/le-versement-sante.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</p>
                         <p class="italic">Les sommes versées au titre du versement santé sont exonérées de cotisations sociales mais assujetties en totalité à CSG/CRDS ainsi qu'au forfait social dans les entreprises de 11 salariés et plus.</p>
 
                         <h3 class="font-semibold text-lg mt-4">C. La Prévoyance Complémentaire :</h3>
-                        <p>Les employeurs peuvent mettre en place des contrats de prévoyance complémentaire collective non obligatoires (sauf si imposé par convention collective) pour couvrir et compléter les revenus des salariés en cas d'accidents de la vie (arrêts de travail, invalidité, incapacité permanente, décès).</p>
+                        <p>Les employeurs peuvent mettre en place des contrats de prévoyance complémentaire collective non obligatoires (sauf si imposé par convention collective) pour couvrir et compléter les revenus des salariés en cas d'accidents de la vie (arrêts de travail, invalidité, incapacité permanente, décès) (<a href="https://www.service-public.fr/particuliers/vosdroits/F31593" target="_blank" class="text-blue-600 hover:underline">Source : Service-Public.fr</a>).</p>
                         <p class="italic">La participation patronale à la prévoyance complémentaire est soumise à la CSG/CRDS ainsi qu'au forfait social si l'effectif de l'entreprise est de 11 salariés et plus.</p>
                     </div>
                 </details>
@@ -314,17 +322,17 @@
                         <h3 class="font-semibold text-lg mt-4">A. Contributions de la Formation Professionnelle et de l'Apprentissage :</h3>
                         <p>Regroupées sous la <strong>Contribution Unique à la Formation Professionnelle et à l'Alternance (CUFPA)</strong>, elles comprennent :</p>
                         <ul class="list-disc list-inside ml-4">
-                            <li>La <strong>Contribution à la Formation Professionnelle (CFP)</strong> : finance la formation continue des salariés et demandeurs d'emploi. Taux variable selon la taille de l'entreprise (ex: 0,55% pour -11 salariés, 1% pour +11 salariés).</li>
-                            <li>La <strong>Contribution CPF-CDD</strong> : due en cas d'emploi de salariés en CDD (1% de la masse salariale), sauf exceptions (contrats aidés, saisonniers).</li>
-                            <li>La <strong>Taxe d'Apprentissage (TA)</strong> : impôt finançant l'apprentissage et les formations technologiques/professionnelles (0,68% de la masse salariale annuelle brute, sauf Alsace-Moselle).</li>
-                            <li>La <strong>Contribution Supplémentaire à l'Apprentissage (CSA)</strong> : due par les entreprises de 250 salariés et plus qui emploient moins de 5% d'alternants. Le taux varie selon le pourcentage d'alternants.</li>
+                            <li>La <strong>Contribution à la Formation Professionnelle (CFP)</strong> : finance la formation continue des salariés et demandeurs d'emploi. Taux variable selon la taille de l'entreprise (<span class="highlight-update">ex: 0,55 % pour -11 salariés, 1 % pour +11 salariés</span>) (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/la-contribution-a-la-formation-p.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</li>
+                            <li>La <strong>Contribution CPF-CDD</strong> : due en cas d'emploi de salariés en CDD (<span class="highlight-update">1 % de la masse salariale</span>), sauf exceptions (contrats aidés, saisonniers) (<a href="https://www.service-public.fr/professionnels-entreprises/vosdroits/F32085" target="_blank" class="text-blue-600 hover:underline">Source : Service-Public.fr</a>).</li>
+                            <li>La <strong>Taxe d'Apprentissage (TA)</strong> : impôt finançant l'apprentissage et les formations technologiques/professionnelles (<span class="highlight-update">0,68 % de la masse salariale annuelle brute, sauf Alsace-Moselle où c'est 0,44 %</span>) (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/la-taxe-dapprentissage.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</li>
+                            <li>La <strong>Contribution Supplémentaire à l'Apprentissage (CSA)</strong> : due par les entreprises de 250 salariés et plus qui emploient moins de 5% d'alternants. Le taux varie selon le pourcentage d'alternants (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/la-contribution-supplementaire-a-l.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</li>
                         </ul>
 
                         <h3 class="font-semibold text-lg mt-4">B. Participation des Employeurs à l'Effort de Construction (PEEC) :</h3>
-                        <p>Aussi appelée « dispositif 1% logement », due par les employeurs d'au moins 50 salariés assujettis à la taxe sur les salaires. Taux de 0,45% sur les rémunérations brutes annuelles. Elle finance des investissements pour le logement des travailleurs.</p>
+                        <p>Aussi appelée « dispositif 1% logement », due par les employeurs d'au moins <span class="highlight-update">50 salariés</span> assujettis à la taxe sur les salaires. Taux de <span class="highlight-update">0,45 % sur les rémunérations brutes annuelles</span>. Elle finance des investissements pour le logement des travailleurs (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/la-participation-des-employeurs-a.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</p>
 
                         <h3 class="font-semibold text-lg mt-4">C. Contribution annuelle à l'Obligation d'Emploi des Travailleurs Handicapés (OETH) :</h3>
-                        <p>Due par les entreprises de plus de 20 salariés qui ne respectent pas l'obligation d'emploi de 6% de travailleurs handicapés. Elle est reversée à l'Agefiph.</p>
+                        <p>Due par les entreprises de <span class="highlight-update">plus de 20 salariés</span> qui ne respectent pas l'obligation d'emploi de <span class="highlight-update">6 % de travailleurs handicapés</span>. Elle est reversée à l'Agefiph (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/contribution-annuelle-oeth.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</p>
                     </div>
                 </details>
                 <div class="mini-quiz-area mt-6 p-4 rounded-lg" style="background-color: var(--accent-light-color);" id="mini-quiz-contributions-patronales-annuelles">
