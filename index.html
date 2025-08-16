@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B1_M5_001_Les diverses cotisations sociales</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Random colors for accents, neutral background -->
+    <!-- Application Structure Plan: Ce document est structuré comme un guide interactif de formation. Une barre de progression visuelle en haut permet de suivre l'avancement. Le contenu est divisé en sections thématiques (Introduction, Cotisations URSSAF, Cotisations AGIRC-ARRCO, Mutuelle et Prévoyance, Contributions Patronales Annuelles, Essentiel), chacune étant initialement verrouillée sauf la première. Pour débloquer la section suivante, l'utilisateur doit réussir un mini-quiz (2-3 questions) associé à la section courante avec un score de 100%. Une fois toutes les sections validées, le quiz final devient accessible. Cette approche gamifiée, avec des retours visuels et des validations par mini-quiz, assure une lecture active et une compréhension approfondie avant de passer au module suivant, rendant l'apprentissage ludique et efficace. -->
+    <!-- Visualization & Content Choices: 
+        - Barre de Progression (HTML/CSS): Objectif: Informer, Engager. Des cercles colorés indiquent l'état de chaque section (verrouillée, active, complétée), offrant un feedback visuel immédiat sur l'avancement.
+        - Sections thématiques (HTML/CSS/JS - Accordions avec verrouillage): Objectif: Organiser, Informer, Guider. Les sections sont encapsulées dans des conteneurs qui gèrent leur état (verrouillé/déverrouillé) via des classes CSS (opacité, pointer-events). Les accordéons permettent de masquer/afficher le contenu.
+        - Mini-Quiz par Section (HTML/CSS/JS): Objectif: Évaluer, Renforcer. Chaque section a son propre mini-quiz. La réussite à 100% est obligatoire pour la validation. Cela force l'utilisateur à assimiler le contenu avant de progresser. Le quiz final est conditionné par la validation de toutes les sections.
+        - Texte détaillé avec mise en gras et emojis: Objectif: Informer, Engager. La mise en gras souligne les concepts clés, et les emojis ajoutent une touche visuelle et ludique.
+        - Quiz Principal (HTML/CSS/JS): Objectif: Évaluer, Renforcer. Le quiz complet est débloqué à la fin du parcours, avec des justifications détaillées pour chaque réponse, basées sur des sources réglementaires.
+        - Couleurs et Pep (Tailwind CSS): Utilisation de couleurs aléatoires pour les boutons, les bordures, les arrière-plans subtils et les icônes, rendant l'interface plus dynamique et "beau gosse".
+        - Justification: Ces choix visent à transformer un sujet réglementaire complexe en une expérience d'apprentissage interactive, structurée et motivante, sans recourir à des images ou des SVG. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F8F8; /* Light gray background */
+            color: #333333; /* Dark gray text */
+        }
+        .quiz-option input[type="radio"]:checked + label {
+            background-color: var(--accent-dark-color); /* Couleur foncée pour la sélection */
+            color: #FFFFFF; /* Texte blanc pour le contraste */
+            border-color: var(--accent-dark-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Ombre pour la profondeur */
+        }
+        .quiz-option label {
+            transition: all 0.2s ease;
+        }
+        .quiz-feedback.correct {
+            background-color: #D4EDDA; /* Light green */
+            color: #155724; /* Dark green */
+        }
+        .quiz-feedback.incorrect {
+            background-color: #F8D7DA; /* Light red */
+            color: #721C24; /* Dark red */
+        }
+        .section-locked {
+            opacity: 0.5;
+            pointer-events: none;
+            filter: grayscale(80%);
+        }
+        .progress-dot {
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            background-color: #B0BEC5; /* Blue-gray 300 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: #FFFFFF;
+            transition: background-color 0.3s ease;
+        }
+        .progress-dot.active {
+            background-color: var(--accent-dark-color);
+        }
+        .progress-dot.completed {
+            background-color: #388E3C; /* Dark green */
+        }
+        .progress-line {
+            flex-grow: 1;
+            height: 4px;
+            background-color: #CFD8DC; /* Blue-gray 200 */
+            transition: background-color 0.3s ease;
+        }
+        .progress-line.completed {
+            background-color: #388E3C; /* Dark green */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-gradient-to-r from-gray-800 to-gray-700 shadow-lg" style="background-image: linear-gradient(to right, var(--header-start-color), var(--header-end-color));">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-white">
+            <h1 class="text-3xl font-bold tracking-tight">B1_M5_001_Les diverses cotisations sociales</h1>
+            <p class="mt-1 text-gray-200" style="color: var(--header-text-color);">Explorez les différentes cotisations sociales et leurs objectifs. 📊</p>
+        </div>
+    </header>
+
+    <main class="py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <section id="introduction" class="mb-12 bg-white p-6 rounded-xl shadow-lg border-l-4" style="border-color: var(--accent-dark-color);">
+                <details open class="cursor-pointer">
+                    <summary class="font-bold text-xl text-gray-800 flex items-center py-2">
+                        Introduction : Le Financement de la Protection Sociale 🛡️
+                        <span class="ml-2 text-sm font-normal" style="color: var(--accent-dark-color);">Section active</span>
+                    </summary>
+                    <div class="mt-4 text-gray-700 space-y-4">
+                        <p>Bienvenue dans ce module dédié aux <strong>diverses cotisations sociales</strong>. Les cotisations sociales, calculées notamment sur la base des salaires bruts des salariés et versées par l'employeur, ont pour objectif de financer des prestations sociales.</p>
+                        <p>Dès l'ordonnance du 4 octobre 1945 créant la sécurité sociale, l'objectif affiché est « de garantir les travailleurs et leurs familles contre les risques de toute nature susceptibles de réduire ou de supprimer leur capacité de gain, à couvrir les charges de maternité et les charges de famille qu'ils supportent ».</p>
+                        <p>Ce module vous guidera à travers :</p>
+                        <ul class="list-disc list-inside ml-4">
+                            <li>Les <strong>cotisations recouvrées par l'URSSAF</strong>.</li>
+                            <li>Les <strong>cotisations recouvrées par l'AGIRC-ARRCO</strong>.</li>
+                            <li>Les <strong>cotisations mutuelles santé et prévoyance</strong>.</li>
+                            <li>Les <strong>contributions patronales annuelles</strong>.</li>
+                        </ul>
+                        <div class="flex justify-center my-4">
+                            <div class="p-6 rounded-lg font-semibold text-center text-2xl" style="background-color: var(--accent-light-color); color: var(--accent-dark-color);">
+                                Les cotisations sociales : un pilier de notre système ! 🤝
+                            </div>
+                        </div>
+                    </div>
+                </details>
+                <div class="mini-quiz-area mt-6 p-4 rounded-lg" style="background-color: var(--accent-light-color);" id="mini-quiz-introduction">
+                    <h4 class="font-bold text-lg mb-4" style="color: var(--accent-dark-color);">Mini-Quiz : Introduction 📝</h4>
+                    <div id="mini-quiz-introduction-container"></div>
+                    <button class="validate-section-btn mt-4 py-2 px-4 text-white rounded-lg font-semibold hover:opacity-90 transition hidden" style="background-color: var(--accent-dark-color);" data-section="introduction">Valider la Section ✅</button>
+                </div>
+            </section>
+
+            <!-- Global Instruction for Progression -->
+            <div class="border-l-4 p-4 mb-8" role="alert" style="background-color: var(--accent-light-color); border-color: var(--accent-dark-color); color: var(--accent-dark-color);">
+                <p class="font-bold">Comment ça marche ?</p>
+                <p>Pour progresser dans ce module, vous devez <strong>valider chaque section</strong>. Lisez attentivement le contenu, puis répondez correctement à <strong>toutes les questions du mini-quiz</strong> associé. Une fois le mini-quiz réussi à 100%, le bouton "Valider la Section" apparaîtra, débloquant ainsi la section suivante. Bonne lecture et bon quiz !</p>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="flex items-center justify-between mb-12 px-4">
+                <div class="progress-dot" id="dot-introduction">1</div>
+                <div class="progress-line" id="line-introduction"></div>
+                <div class="progress-dot" id="dot-cotisations-urssaf">2</div>
+                <div class="progress-line" id="line-cotisations-urssaf"></div>
+                <div class="progress-dot" id="dot-cotisations-agirc-arrco">3</div>
+                <div class="progress-line" id="line-cotisations-agirc-arrco"></div>
+                <div class="progress-dot" id="dot-mutuelle-prevoyance">4</div>
+                <div class="progress-line" id="line-mutuelle-prevoyance"></div>
+                <div class="progress-dot" id="dot-contributions-patronales-annuelles">5</div>
+                <div class="progress-line" id="line-contributions-patronales-annuelles"></div>
+                <div class="progress-dot" id="dot-essentiel-cotisations">6</div>
+                <div class="progress-line" id="line-essentiel-cotisations"></div>
+                <div class="progress-dot" id="dot-final-quiz">🏁</div>
+            </div>
+
+            <section id="cotisations-urssaf" class="learning-section mb-12 bg-white p-6 rounded-xl shadow-lg border-l-4 border-gray-300 section-locked">
+                <details class="cursor-pointer">
+                    <summary class="font-bold text-xl text-gray-800 flex items-center py-2">
+                        Les Cotisations Recouvrées par l'URSSAF 🏦
+                        <span class="ml-2 text-gray-500 text-sm font-normal" id="status-cotisations-urssaf">(Verrouillée 🔒)</span>
+                    </summary>
+                    <div class="mt-4 text-gray-700 space-y-4">
+                        <h3 class="font-semibold text-lg">A. Introduction :</h3>
+                        <p>L'URSSAF (Union de Recouvrement des Cotisations de Sécurité Sociale et Allocations Familiales) est chargée de collecter les cotisations sociales salariales et patronales qui concernent les cotisations de sécurité sociale. Elle les répartit ensuite entre les quatre branches de la Sécurité Sociale : la maladie, la vieillesse, la famille et les accidents de travail / maladies professionnelles.</p>
+
+                        <h3 class="font-semibold text-lg mt-4">B. Cotisation Assurance Maladie, Maternité, Décès :</h3>
+                        <p>Finance les indemnités journalières (arrêt maladie, maternité), les remboursements de frais médicaux et les pensions d'invalidité. Le taux est de 7% pour les rémunérations $\le 2,5 \times$ SMIC annuel, et de 13% pour les rémunérations $> 2,5 \times$ SMIC annuel.</p>
+                        <div class="overflow-x-auto my-2">
+                            <table class="min-w-full bg-white border border-gray-200 rounded-md shadow-sm text-sm">
+                                <thead>
+                                    <tr class="bg-gray-100">
+                                        <th class="py-2 px-4 border-b text-left">Assiette de cotisation</th>
+                                        <th class="py-2 px-4 border-b text-left">Part salariale</th>
+                                        <th class="py-2 px-4 border-b text-left">Part patronale</th>
+                                        <th class="py-2 px-4 border-b text-left">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td class="py-2 px-4 border-b">Rémunération $\le 2,5$ SMIC</td><td class="py-2 px-4 border-b">0%</td><td class="py-2 px-4 border-b">7,00%</td><td class="py-2 px-4 border-b">7,00%</td></tr>
+                                    <tr><td class="py-2 px-4 border-b">Rémunération $> 2,5$ SMIC</td><td class="py-2 px-4 border-b">0%</td><td class="py-2 px-4 border-b">13,00%</td><td class="py-2 px-4 border-b">13,00%</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3 class="font-semibold text-lg mt-4">C. Contribution Solidarité Autonomie (CSA) :</h3>
+                        <p>Destinée à financer la Caisse nationale de solidarité pour l'autonomie des personnes âgées. Taux de 0,30% sur le salaire total brut (part patronale).</p>
+
+                        <h3 class="font-semibold text-lg mt-4">D. Cotisation Vieillesse (Plafonnée et Déplafonnée) :</h3>
+                        <p>Finance le régime de retraite de base (CNAV). Calculée sur deux bases : rémunération déplafonnée (0,40% sal. / 2,02% pat.) et rémunération plafonnée (6,90% sal. / 8,55% pat.).</p>
+
+                        <h3 class="font-semibold text-lg mt-4">E. Cotisation Allocation Familiale :</h3>
+                        <p>Finance les prestations versées par la CAF. Le taux réduit (3,45%) s'applique aux rémunérations $\le 3,5 \times$ SMIC annuel. Au-delà, le taux est de 5,25% (3,45% + 1,80% complément).</p>
+
+                        <h3 class="font-semibold text-lg mt-4">F. Cotisation Accidents du Travail :</h3>
+                        <p>Finance les indemnités journalières en cas d'accident du travail/maladie professionnelle. Le taux est déterminé par la CARSAT et dépend de l'effectif et de l'activité de l'entreprise (tarification forfaitaire, mixte ou réelle).</p>
+
+                        <h3 class="font-semibold text-lg mt-4">G. Cotisation Fonds National d'Aide au Logement (FNAL) :</h3>
+                        <p>Finance l'allocation logement. Taux de 0,10% sur salaire plafonné pour entreprises de moins de 50 salariés, et 0,50% sur salaire total brut pour 50 salariés et plus.</p>
+
+                        <h3 class="font-semibold text-lg mt-4">H. Versement Mobilité (VM) et VM Additionnel :</h3>
+                        <p>Participation des employeurs de 11 salariés et plus au financement des transports en commun. Taux variable selon la zone géographique, appliqué sur le salaire brut.</p>
+
+                        <h3 class="font-semibold text-lg mt-4">I. Forfait Social (8%, 10%, 16%, 20%) :</h3>
+                        <p>Cotisation uniquement à la charge de l'employeur, appliquée sur certains avantages ou rémunérations non soumis aux cotisations de Sécurité Sociale mais soumis à CSG. Les taux varient selon la nature de l'avantage (ex: 8% sur prévoyance/mutuelle patronale, 16% sur Pereco sous conditions, 20% sur intéressement/participation).</p>
+
+                        <h3 class="font-semibold text-lg mt-4">M. Contribution au Dialogue Social :</h3>
+                        <p>Cotisation patronale (0,016%) sur les salaires bruts, destinée au financement des organisations syndicales et patronales.</p>
+
+                        <h3 class="font-semibold text-lg mt-4">N. Contribution Sociale Généralisée (CSG) et Contribution au Remboursement de la Dette Sociale (CRDS) :</h3>
+                        <p>Contributions uniquement salariales déduites du salaire brut. La CSG finance l'assurance maladie, prestations familiales, etc. La CRDS finance la Caisse d'Amortissement de la Dette Sociale. Elles s'appliquent sur le salaire brut abattu de 1,75% (dans certaines limites).</p>
+
+                        <h3 class="font-semibold text-lg mt-4">O. Cotisation Assurance Chômage :</h3>
+                        <p>Cotisation uniquement patronale (4,05% sur salaire brut, limité à 4x PMSS) finançant les indemnités chômage versées par France Travail. Un système de "bonus-malus" peut moduler ce taux.</p>
+
+                        <h3 class="font-semibold text-lg mt-4">P. Cotisation AGS :</h3>
+                        <p>Cotisation purement patronale (0,25% sur salaire brut, limité à 4x PMSS) finançant l'assurance de garantie des salaires, qui permet de rémunérer les salariés en cas de défaillance de l'entreprise.</p>
+                    </div>
+                </details>
+                <div class="mini-quiz-area mt-6 p-4 rounded-lg" style="background-color: var(--accent-light-color);" id="mini-quiz-cotisations-urssaf">
+                    <h4 class="font-bold text-lg mb-4" style="color: var(--accent-dark-color);">Mini-Quiz : Cotisations URSSAF 📝</h4>
+                    <div id="mini-quiz-cotisations-urssaf-container"></div>
+                    <button class="validate-section-btn mt-4 py-2 px-4 text-white rounded-lg font-semibold hover:opacity-90 transition hidden" style="background-color: var(--accent-dark-color);" data-section="cotisations-urssaf">Valider la Section ✅</button>
+                </div>
+            </section>
+
+            <section id="cotisations-agirc-arrco" class="learning-section mb-12 bg-white p-6 rounded-xl shadow-lg border-l-4 border-gray-300 section-locked">
+                <details class="cursor-pointer">
+                    <summary class="font-bold text-xl text-gray-800 flex items-center py-2">
+                        Les Cotisations Recouvrées par l'AGIRC-ARRCO 👵👴
+                        <span class="ml-2 text-gray-500 text-sm font-normal" id="status-cotisations-agirc-arrco">(Verrouillée 🔒)</span>
+                    </summary>
+                    <div class="mt-4 text-gray-700 space-y-4">
+                        <h3 class="font-semibold text-lg">A. Introduction :</h3>
+                        <p>L'AGIRC-ARRCO est le régime de retraite complémentaire obligatoire pour tous les salariés du secteur privé ou agricole (cadres et non-cadres) depuis la fusion des régimes AGIRC et ARRCO en janvier 2019. Ces cotisations financent les pensions de retraite complémentaires.</p>
+
+                        <h3 class="font-semibold text-lg mt-4">B. Cotisations AGIRC-ARRCO pour les salariés non-cadres et cadres :</h3>
+                        <p>L'AGIRC-ARRCO prélève trois cotisations principales :</p>
+                        <ul class="list-disc list-inside ml-4">
+                            <li>La <strong>cotisation retraite complémentaire</strong> (T1 et T2).</li>
+                            <li>La <strong>cotisation CEG</strong> (Contribution d'Équilibre Général) : finance les surcoûts des départs anticipés à la retraite (CEG T1 et CEG T2).</li>
+                            <li>La <strong>cotisation CET</strong> (Contribution d'Équilibre Technique) : s'applique aux salaires supérieurs au plafond de la sécurité sociale (PMSS).</li>
+                        </ul>
+                        <div class="overflow-x-auto my-2">
+                            <table class="min-w-full bg-white border border-gray-200 rounded-md shadow-sm text-sm">
+                                <thead>
+                                    <tr class="bg-gray-100">
+                                        <th class="py-2 px-4 border-b text-left">Taux de cotisation (inclus pourcentage d'appel 127%)</th>
+                                        <th class="py-2 px-4 border-b text-left">À la charge de l'employeur</th>
+                                        <th class="py-2 px-4 border-b text-left">À la charge du salarié</th>
+                                        <th class="py-2 px-4 border-b text-left">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td class="py-2 px-4 border-b">T1</td><td class="py-2 px-4 border-b">4,72%</td><td class="py-2 px-4 border-b">3,15%</td><td class="py-2 px-4 border-b">7,87%</td></tr>
+                                    <tr><td class="py-2 px-4 border-b">T2</td><td class="py-2 px-4 border-b">12,95%</td><td class="py-2 px-4 border-b">8,64%</td><td class="py-2 px-4 border-b">21,59%</td></tr>
+                                    <tr><td class="py-2 px-4 border-b">CEG T1</td><td class="py-2 px-4 border-b">1,29%</td><td class="py-2 px-4 border-b">0,86%</td><td class="py-2 px-4 border-b">2,15%</td></tr>
+                                    <tr><td class="py-2 px-4 border-b">CEG T2</td><td class="py-2 px-4 border-b">1,62%</td><td class="py-2 px-4 border-b">1,08%</td><td class="py-2 px-4 border-b">2,70%</td></tr>
+                                    <tr><td class="py-2 px-4 border-b">CET</td><td class="py-2 px-4 border-b">0,21%</td><td class="py-2 px-4 border-b">0,14%</td><td class="py-2 px-4 border-b">0,35%</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3 class="font-semibold text-lg mt-4">C. Cotisations AGIRC-ARRCO pour les salariés cadres (en plus) :</h3>
+                        <ul class="list-disc list-inside ml-4">
+                            <li>La <strong>cotisation prévoyance Assurance décès cadre</strong> (article 4 et 4 bis de la convention collective nationale de retraite et de prévoyance des cadres du 14 mars 1947) : obligatoire, minimum de 1,50% sur le salaire plafonné (part patronale uniquement). Finance un capital décès pour les ayants droit.</li>
+                            <li>La <strong>cotisation APEC</strong> (Association Pour l'Emploi des Cadres) : cotisation mensuelle (0,036% employeur / 0,024% salarié) prélevée sur les salaires des cadres, limitée à 4x PMSS.</li>
+                        </ul>
+                    </div>
+                </details>
+                <div class="mini-quiz-area mt-6 p-4 rounded-lg" style="background-color: var(--accent-light-color);" id="mini-quiz-cotisations-agirc-arrco">
+                    <h4 class="font-bold text-lg mb-4" style="color: var(--accent-dark-color);">Mini-Quiz : Cotisations AGIRC-ARRCO 📝</h4>
+                    <div id="mini-quiz-cotisations-agirc-arrco-container"></div>
+                    <button class="validate-section-btn mt-4 py-2 px-4 text-white rounded-lg font-semibold hover:opacity-90 transition hidden" style="background-color: var(--accent-dark-color);" data-section="cotisations-agirc-arrco">Valider la Section ✅</button>
+                </div>
+            </section>
+
+            <section id="mutuelle-prevoyance" class="learning-section mb-12 bg-white p-6 rounded-xl shadow-lg border-l-4 border-gray-300 section-locked">
+                <details class="cursor-pointer">
+                    <summary class="font-bold text-xl text-gray-800 flex items-center py-2">
+                        Les Cotisations Mutuelle Santé et Prévoyance 🏥
+                        <span class="ml-2 text-gray-500 text-sm font-normal" id="status-mutuelle-prevoyance">(Verrouillée 🔒)</span>
+                    </summary>
+                    <div class="mt-4 text-gray-700 space-y-4">
+                        <h3 class="font-semibold text-lg">A. La Mutuelle Santé Obligatoire :</h3>
+                        <p>Les entreprises sont obligées d'instaurer un contrat collectif de mutuelle santé pour leurs salariés. Cette couverture complète les remboursements de la Sécurité sociale.</p>
+                        <p>Conditions à respecter :</p>
+                        <ul class="list-disc list-inside ml-4">
+                            <li>Participation financière de l'employeur d'au moins 50% de la cotisation.</li>
+                            <li>Respect d'un socle de garanties minimales (panier de soins minimum).</li>
+                            <li>Contrat obligatoire pour tous les salariés, sauf cas de dispense (déjà couvert, CDD de moins de 3 mois, temps très partiel, etc.).</li>
+                        </ul>
+                        <p class="italic">La cotisation patronale de participation à la mutuelle santé obligatoire est soumise à la CSG/CRDS ainsi qu'au forfait social si l'effectif de l'entreprise est de 11 salariés et plus. Elle est également imposable pour le salarié.</p>
+
+                        <h3 class="font-semibold text-lg mt-4">B. Le Versement Santé (ou chèque santé) :</h3>
+                        <p>Lorsque le salarié est dispensé d'adhérer à la mutuelle collective (CDD < 3 mois ou temps très partiel), l'employeur doit proposer le Versement Santé. C'est une aide financière pour la mutuelle personnelle du salarié.</p>
+                        <p>Conditions pour en bénéficier :</p>
+                        <ul class="list-disc list-inside ml-4">
+                            <li>Justifier d'une couverture responsable.</li>
+                            <li>Ne pas être déjà bénéficiaire d'une couverture collective ou financée par une collectivité publique, ni de la CSS.</li>
+                        </ul>
+                        <p>Le montant est le montant de référence (contribution mensuelle employeur à la mutuelle) multiplié par un coefficient (105% pour CDI, 125% pour CDD/intérim). Il ne peut être inférieur à un minimum légal (20,75 € en 2024).</p>
+                        <p class="italic">Les sommes versées au titre du versement santé sont exonérées de cotisations sociales mais assujetties en totalité à CSG/CRDS ainsi qu'au forfait social dans les entreprises de 11 salariés et plus.</p>
+
+                        <h3 class="font-semibold text-lg mt-4">C. La Prévoyance Complémentaire :</h3>
+                        <p>Les employeurs peuvent mettre en place des contrats de prévoyance complémentaire collective non obligatoires (sauf si imposé par convention collective) pour couvrir et compléter les revenus des salariés en cas d'accidents de la vie (arrêts de travail, invalidité, incapacité permanente, décès).</p>
+                        <p class="italic">La participation patronale à la prévoyance complémentaire est soumise à la CSG/CRDS ainsi qu'au forfait social si l'effectif de l'entreprise est de 11 salariés et plus.</p>
+                    </div>
+                </details>
+                <div class="mini-quiz-area mt-6 p-4 rounded-lg" style="background-color: var(--accent-light-color);" id="mini-quiz-mutuelle-prevoyance">
+                    <h4 class="font-bold text-lg mb-4" style="color: var(--accent-dark-color);">Mini-Quiz : Mutuelle et Prévoyance 📝</h4>
+                    <div id="mini-quiz-mutuelle-prevoyance-container"></div>
+                    <button class="validate-section-btn mt-4 py-2 px-4 text-white rounded-lg font-semibold hover:opacity-90 transition hidden" style="background-color: var(--accent-dark-color);" data-section="mutuelle-prevoyance">Valider la Section ✅</button>
+                </div>
+            </section>
+
+            <section id="contributions-patronales-annuelles" class="learning-section mb-12 bg-white p-6 rounded-xl shadow-lg border-l-4 border-gray-300 section-locked">
+                <details class="cursor-pointer">
+                    <summary class="font-bold text-xl text-gray-800 flex items-center py-2">
+                        Les Contributions Patronales Annuelles 📅
+                        <span class="ml-2 text-gray-500 text-sm font-normal" id="status-contributions-patronales-annuelles">(Verrouillée 🔒)</span>
+                    </summary>
+                    <div class="mt-4 text-gray-700 space-y-4">
+                        <p>Les employeurs concourent au développement de la formation professionnelle et de l'apprentissage ainsi qu'à d'autres dispositifs par le versement de diverses contributions.</p>
+
+                        <h3 class="font-semibold text-lg mt-4">A. Contributions de la Formation Professionnelle et de l'Apprentissage :</h3>
+                        <p>Regroupées sous la <strong>Contribution Unique à la Formation Professionnelle et à l'Alternance (CUFPA)</strong>, elles comprennent :</p>
+                        <ul class="list-disc list-inside ml-4">
+                            <li>La <strong>Contribution à la Formation Professionnelle (CFP)</strong> : finance la formation continue des salariés et demandeurs d'emploi. Taux variable selon la taille de l'entreprise (ex: 0,55% pour -11 salariés, 1% pour +11 salariés).</li>
+                            <li>La <strong>Contribution CPF-CDD</strong> : due en cas d'emploi de salariés en CDD (1% de la masse salariale), sauf exceptions (contrats aidés, saisonniers).</li>
+                            <li>La <strong>Taxe d'Apprentissage (TA)</strong> : impôt finançant l'apprentissage et les formations technologiques/professionnelles (0,68% de la masse salariale annuelle brute, sauf Alsace-Moselle).</li>
+                            <li>La <strong>Contribution Supplémentaire à l'Apprentissage (CSA)</strong> : due par les entreprises de 250 salariés et plus qui emploient moins de 5% d'alternants. Le taux varie selon le pourcentage d'alternants.</li>
+                        </ul>
+
+                        <h3 class="font-semibold text-lg mt-4">B. Participation des Employeurs à l'Effort de Construction (PEEC) :</h3>
+                        <p>Aussi appelée « dispositif 1% logement », due par les employeurs d'au moins 50 salariés assujettis à la taxe sur les salaires. Taux de 0,45% sur les rémunérations brutes annuelles. Elle finance des investissements pour le logement des travailleurs.</p>
+
+                        <h3 class="font-semibold text-lg mt-4">C. Contribution annuelle à l'Obligation d'Emploi des Travailleurs Handicapés (OETH) :</h3>
+                        <p>Due par les entreprises de plus de 20 salariés qui ne respectent pas l'obligation d'emploi de 6% de travailleurs handicapés. Elle est reversée à l'Agefiph.</p>
+                    </div>
+                </details>
+                <div class="mini-quiz-area mt-6 p-4 rounded-lg" style="background-color: var(--accent-light-color);" id="mini-quiz-contributions-patronales-annuelles">
+                    <h4 class="font-bold text-lg mb-4" style="color: var(--accent-dark-color);">Mini-Quiz : Contributions Patronales Annuelles 📝</h4>
+                    <div id="mini-quiz-contributions-patronales-annuelles-container"></div>
+                    <button class="validate-section-btn mt-4 py-2 px-4 text-white rounded-lg font-semibold hover:opacity-90 transition hidden" style="background-color: var(--accent-dark-color);" data-section="contributions-patronales-annuelles">Valider la Section ✅</button>
+                </div>
+            </section>
+
+            <section id="essentiel-cotisations" class="learning-section mb-12 bg-white p-6 rounded-xl shadow-lg border-l-4 border-gray-300 section-locked">
+                <details class="cursor-pointer">
+                    <summary class="font-bold text-xl text-gray-800 flex items-center py-2">
+                        Essentiel : Les Points Clés des Cotisations Sociales ✔️
+                        <span class="ml-2 text-gray-500 text-sm font-normal" id="status-essentiel-cotisations">(Verrouillée 🔒)</span>
+                    </summary>
+                    <div class="mt-4 text-gray-700 space-y-4">
+                        <h3 class="font-semibold text-lg">Objectif des cotisations sociales :</h3>
+                        <ul class="list-disc list-inside ml-4">
+                            <li>Financer les prestations sociales et garantir la protection des travailleurs et de leurs familles.</li>
+                        </ul>
+
+                        <h3 class="font-semibold text-lg mt-4">Cotisations URSSAF :</h3>
+                        <ul class="list-disc list-inside ml-4">
+                            <li>Collecte les cotisations de sécurité sociale (maladie, vieillesse, famille, accidents du travail).</li>
+                            <li>Inclut la CSG/CRDS (salariales), l'assurance chômage (patronale), l'AGS (patronale), le forfait social (patronal sur certains avantages), etc.</li>
+                            <li>Les taux varient souvent en fonction du salaire (ex: maladie, allocations familiales) et de l'effectif de l'entreprise.</li>
+                        </ul>
+
+                        <h3 class="font-semibold text-lg mt-4">Cotisations AGIRC-ARRCO :</h3>
+                        <ul class="list-disc list-inside ml-4">
+                            <li>Financent la retraite complémentaire obligatoire pour tous les salariés du privé.</li>
+                            <li>Comprend la retraite complémentaire (T1, T2), la CEG et la CET.</li>
+                            <li>Les cadres ont des cotisations spécifiques (prévoyance décès cadre, APEC).</li>
+                        </ul>
+
+                        <h3 class="font-semibold text-lg mt-4">Mutuelle Santé et Prévoyance :</h3>
+                        <ul class="list-disc list-inside ml-4">
+                            <li>Mutuelle santé collective obligatoire : participation employeur $\ge 50\%$, panier de soins minimum, cas de dispense.</li>
+                            <li>Versement Santé : aide pour mutuelle personnelle si salarié dispensé de la collective.</li>
+                            <li>Prévoyance complémentaire : couvre arrêts de travail, invalidité, décès (peut être obligatoire selon la convention collective).</li>
+                            <li>La part patronale de mutuelle/prévoyance est souvent soumise à CSG/CRDS et forfait social.</li>
+                        </ul>
+
+                        <h3 class="font-semibold text-lg mt-4">Contributions Patronales Annuelles :</h3>
+                        <ul class="list-disc list-inside ml-4">
+                            <li><strong>CUFPA</strong> (CFP, Taxe d'Apprentissage, CPF-CDD) : finance la formation professionnelle et l'apprentissage.</li>
+                            <li><strong>PEEC</strong> (1% logement) : finance le logement des travailleurs (entreprises $\ge 50$ salariés).</li>
+                            <li><strong>OETH</strong> : contribution pour l'emploi des travailleurs handicapés (entreprises $> 20$ salariés ne respectant pas le quota).</li>
+                        </ul>
+                    </div>
+                </details>
+                <div class="mini-quiz-area mt-6 p-4 rounded-lg" style="background-color: var(--accent-light-color);" id="mini-quiz-essentiel-cotisations">
+                    <h4 class="font-bold text-lg mb-4" style="color: var(--accent-dark-color);">Mini-Quiz : Essentiel Cotisations 📝</h4>
+                    <div id="mini-quiz-essentiel-cotisations-container"></div>
+                    <button class="validate-section-btn mt-4 py-2 px-4 text-white rounded-lg font-semibold hover:opacity-90 transition hidden" style="background-color: var(--accent-dark-color);" data-section="essentiel-cotisations">Valider la Section ✅</button>
+                </div>
+            </section>
+
+            <section id="final-quiz-section" class="mt-16 bg-white p-6 rounded-xl shadow-lg border-l-4 border-gray-300 section-locked">
+                <h2 class="text-2xl font-bold text-gray-800 text-center mb-8">Quiz Final sur les Diverses Cotisations Sociales 🎓</h2>
+                <p class="mt-2 text-lg text-gray-600 text-center mb-8" id="final-quiz-intro">Mettez vos connaissances à l'épreuve ! Répondez aux questions et découvrez les <strong>justifications détaillées</strong> pour chaque bonne réponse, comme un vrai expert. 💡</p>
+                
+                <div id="quiz-container" class="hidden">
+                    <h3 id="quiz-question" class="text-xl font-semibold text-gray-800 mb-4"></h3>
+                    <div id="quiz-options" class="space-y-3 mb-6">
+                        <!-- Options will be dynamically loaded here -->
+                    </div>
+                    <div id="quiz-feedback" class="p-4 rounded-lg text-sm hidden">
+                        <!-- Feedback will be displayed here -->
+                    </div>
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg text-sm text-gray-700 hidden">
+                        <h4 class="font-bold mb-2">Explication Détaillée 🧐</h4>
+                        <p id="explanation-text"></p>
+                    </div>
+                    <div class="mt-6 flex justify-between">
+                        <button id="submit-answer" class="py-2 px-4 text-white rounded-lg font-semibold hover:opacity-90 transition" style="background-color: var(--accent-dark-color);">Valider la réponse ✅</button>
+                        <button id="next-question" class="py-2 px-4 bg-gray-300 text-gray-800 rounded-lg font-semibold hover:bg-gray-400 transition hidden">Question suivante ➡️</button>
+                    </div>
+                </div>
+                <div id="start-final-quiz-container" class="text-center">
+                    <button id="start-final-quiz-btn" class="py-3 px-6 text-white rounded-lg font-bold text-lg hover:opacity-90 transition" style="background-color: var(--accent-dark-color);">Démarrer le Quiz Final ! 🚀</button>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="bg-gradient-to-r from-gray-800 to-gray-700 mt-16" style="background-image: linear-gradient(to right, var(--header-start-color), var(--header-end-color));">
+        <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-200" style="color: var(--header-text-color);">
+            <p>Créé par Mathilde Martine PAISLEY L'Enervante, Enervante💪🏾</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Function to generate random colors
+            function getRandomColor() {
+                const colors = [
+                    { headerStart: '#4CAF50', headerEnd: '#8BC34A', headerText: '#DCEDC8', accentDark: '#4CAF50', accentLight: '#E8F5E9' }, // Green
+                    { headerStart: '#2196F3', headerEnd: '#03A9F4', headerText: '#BBDEFB', accentDark: '#2196F3', accentLight: '#E3F2FD' }, // Blue
+                    { headerStart: '#FF9800', headerEnd: '#FFB300', headerText: '#FFECB3', accentDark: '#FF9800', accentLight: '#FFF3E0' }, // Orange
+                    { headerStart: '#9C27B0', headerEnd: '#E040FB', headerText: '#F3E5F5', accentDark: '#9C27B0', accentLight: '#FCE4EC' }, // Purple
+                    { headerStart: '#009688', headerEnd: '#00BCD4', headerText: '#B2EBF2', accentDark: '#009688', accentLight: '#E0F2F7' }, // Teal
+                    { headerStart: '#F44336', headerEnd: '#E53935', headerText: '#FFCDD2', accentDark: '#F44336', accentLight: '#FFEBEE' }, // Red
+                    { headerStart: '#607D8B', headerEnd: '#78909C', headerText: '#CFD8DC', accentDark: '#607D8B', accentLight: '#ECEFF1' }  // Blue-gray
+                ];
+                return colors[Math.floor(Math.random() * colors.length)];
+            }
+
+            const chosenColors = getRandomColor();
+            document.documentElement.style.setProperty('--header-start-color', chosenColors.headerStart);
+            document.documentElement.style.setProperty('--header-end-color', chosenColors.headerEnd);
+            document.documentElement.style.setProperty('--header-text-color', chosenColors.headerText);
+            document.documentElement.style.setProperty('--accent-dark-color', chosenColors.accentDark);
+            document.documentElement.style.setProperty('--accent-light-color', chosenColors.accentLight);
+
+
+            // --- Global Quiz Data ---
+            const allQuizQuestions = {
+                "introduction": [
+                    {
+                        question: "Quel est l'objectif principal de ce module de formation ?",
+                        options: [
+                            "Apprendre à coder en HTML.",
+                            "Comprendre les diverses cotisations sociales et leurs objectifs.",
+                            "Réviser les règles de calcul numérique.",
+                            "Analyser des données financières complexes."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "L'objectif principal de ce module est de vous aider à <strong>comprendre les diverses cotisations sociales et leurs objectifs</strong> en entreprise."
+                    },
+                    {
+                        question: "Vrai ou Faux : Les cotisations sociales sont uniquement à la charge des salariés.",
+                        options: [
+                            "Vrai.",
+                            "Faux."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "<strong>Faux</strong>. Les cotisations sociales sont à la charge des salariés (cotisations salariales) et des employeurs (cotisations patronales)."
+                    }
+                ],
+                "cotisations-urssaf": [
+                    {
+                        question: "Quel organisme est principalement chargé de collecter les cotisations de sécurité sociale ?",
+                        options: [
+                            "L'AGIRC-ARRCO.",
+                            "La CARSAT.",
+                            "L'URSSAF.",
+                            "France Travail."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "L'<strong>URSSAF</strong> (Union de Recouvrement des Cotisations de Sécurité Sociale et Allocations Familiales) est chargée de collecter les cotisations sociales salariales et patronales qui concernent les cotisations de sécurité sociale."
+                    },
+                    {
+                        question: "Parmi les cotisations suivantes, laquelle est principalement collectée par l'URSSAF ?",
+                        options: [
+                            "Cotisation d'assurance vieillesse.",
+                            "Cotisation de prévoyance complémentaire.",
+                            "Cotisation AGIRC-ARRCO.",
+                            "Mutuelle santé obligatoire."
+                        ],
+                        correctAnswer: 0,
+                        explanation: "L'URSSAF collecte plusieurs cotisations sociales, notamment l'<strong>assurance vieillesse</strong> pour la retraite de base, la cotisation familiale, ou la cotisation chômage. La cotisation de prévoyance est quant à elle généralement collectée par la caisse de prévoyance."
+                    },
+                    {
+                        question: "Le taux de la cotisation d'allocation familiale est-il toujours de 3,45% ?",
+                        options: [
+                            "Vrai.",
+                            "Faux."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "<strong>Faux</strong>. Le taux de la cotisation d'allocation familiale dépend du salaire du collaborateur. Il est réduit à 3,45% lorsque sa rémunération brute est inférieure ou égale à 3,5 x le SMIC annuel. Au-delà, une majoration de 1,80% s'applique, portant le taux à 5,25%."
+                    },
+                    {
+                        question: "Le forfait social à 20% s'applique principalement à :",
+                        options: [
+                            "L'intéressement et la participation des salariés.",
+                            "Les heures supplémentaires.",
+                            "Les indemnités de rupture conventionnelle.",
+                            "Les heures complémentaires."
+                        ],
+                        correctAnswer: 0,
+                        explanation: "Le forfait social au taux de 20 % s'applique principalement aux sommes versées au titre de l'<strong>épargne salariale, comme l'intéressement et la participation</strong>. Les heures supplémentaires ou complémentaires sont exonérées de forfait social. Les indemnités de rupture conventionnelle ont un régime spécifique depuis le 1er septembre 2023 et ne sont plus soumises au forfait social au taux de 20%."
+                    },
+                    {
+                        question: "Vrai ou Faux : La Contribution Sociale Généralisée (CSG) est une contribution uniquement patronale.",
+                        options: [
+                            "Vrai.",
+                            "Faux."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "<strong>Faux</strong>. La CSG est une contribution <strong>uniquement salariale</strong>, déduite du salaire brut du salarié."
+                    }
+                ],
+                "cotisations-agirc-arrco": [
+                    {
+                        question: "Quel régime de retraite complémentaire est obligatoire pour les salariés du secteur privé ?",
+                        options: [
+                            "La CNAV.",
+                            "L'AGIRC-ARRCO.",
+                            "Le fonds de solidarité vieillesse.",
+                            "La CARSAT."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "L'<strong>AGIRC-ARRCO</strong> est le régime de retraite complémentaire obligatoire pour tous les salariés du secteur privé ou agricole."
+                    },
+                    {
+                        question: "Quelle cotisation AGIRC-ARRCO s'applique aux salaires supérieurs au plafond de la sécurité sociale (PMSS) ?",
+                        options: [
+                            "La cotisation T1.",
+                            "La cotisation CEG.",
+                            "La cotisation CET.",
+                            "La cotisation APEC."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "La <strong>cotisation CET</strong> (Contribution d'Équilibre Technique) s'applique à tous les salariés dont le salaire est supérieur au plafond de la sécurité sociale."
+                    },
+                    {
+                        question: "Vrai ou Faux : La cotisation prévoyance Assurance décès cadre est une cotisation salariale.",
+                        options: [
+                            "Vrai.",
+                            "Faux."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "<strong>Faux</strong>. La cotisation prévoyance Assurance décès cadre (article 4 et 4 bis de la convention collective nationale de retraite et de prévoyance des cadres du 14 mars 1947) est uniquement une <strong>cotisation patronale</strong>."
+                    },
+                    {
+                        question: "Quelle cotisation AGIRC-ARRCO finance les surcoûts des départs anticipés à la retraite ?",
+                        options: [
+                            "La cotisation retraite complémentaire.",
+                            "La cotisation CEG.",
+                            "La cotisation CET.",
+                            "La cotisation APEC."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "La <strong>cotisation CEG</strong> (Contribution d'Équilibre Général) finance les surcoûts des départs anticipés à la retraite."
+                    },
+                    {
+                        question: "L'APEC est financée par des cotisations prélevées sur les salaires des :",
+                        options: [
+                            "Salariés non-cadres.",
+                            "Salariés cadres.",
+                            "Tous les salariés.",
+                            "Uniquement les dirigeants."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "La cotisation APEC est prélevée sur les salaires des <strong>salariés cadres</strong> inscrits au régime de prévoyance et de retraite."
+                    }
+                ],
+                "mutuelle-prevoyance": [
+                    {
+                        question: "Quelle est la participation minimale de l'employeur à la cotisation de mutuelle santé obligatoire ?",
+                        options: [
+                            "25%",
+                            "40%",
+                            "50%",
+                            "100%"
+                        ],
+                        correctAnswer: 2,
+                        explanation: "L'article L911-7 du Code de la Sécurité sociale prévoit que la participation financière de l'employeur à la mutuelle santé obligatoire doit être au moins égale à <strong>50%</strong> de la cotisation."
+                    },
+                    {
+                        question: "Le Versement Santé (ou chèque santé) est proposé au salarié lorsque :",
+                        options: [
+                            "Il est en CDI à temps plein.",
+                            "Il est déjà couvert par la mutuelle collective.",
+                            "Il est dispensé d'adhérer à la mutuelle collective (ex: CDD < 3 mois).",
+                            "L'employeur ne propose pas de mutuelle."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "Le Versement Santé est une aide financière pour la mutuelle personnelle du salarié lorsqu'il est <strong>dispensé d'adhérer à la mutuelle collective</strong> (ex: CDD de moins de 3 mois ou temps très partiel)."
+                    },
+                    {
+                        question: "Vrai ou Faux : La participation patronale à la mutuelle santé obligatoire est imposable pour le salarié.",
+                        options: [
+                            "Vrai.",
+                            "Faux."
+                        ],
+                        correctAnswer: 0,
+                        explanation: "<strong>Vrai</strong>. La participation patronale à la mutuelle est ajoutée au salaire net imposable du salarié pour le calcul de l'impôt sur le revenu."
+                    },
+                    {
+                        question: "Les contrats de prévoyance complémentaire collective sont-ils toujours obligatoires pour les employeurs ?",
+                        options: [
+                            "Oui, toujours.",
+                            "Non, sauf si imposé par convention collective.",
+                            "Uniquement pour les cadres.",
+                            "Uniquement pour les entreprises de plus de 50 salariés."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Les employeurs peuvent mettre en place des contrats de prévoyance complémentaire collective non obligatoires, <strong>sauf si imposé par convention collective</strong>."
+                    },
+                    {
+                        question: "Le montant de référence du Versement Santé ne peut être inférieur à un minimum légal. Quel était ce minimum en 2024 ?",
+                        options: [
+                            "10,00 €",
+                            "15,50 €",
+                            "20,75 €",
+                            "25,00 €"
+                        ],
+                        correctAnswer: 2,
+                        explanation: "Le montant de référence du Versement Santé ne peut être inférieur à un minimum légal, qui était de <strong>20,75 € en 2024</strong>."
+                    }
+                ],
+                "contributions-patronales-annuelles": [
+                    {
+                        question: "Quelle contribution regroupe la Contribution à la Formation Professionnelle (CFP) et la Taxe d'Apprentissage (TA) ?",
+                        options: [
+                            "La PEEC.",
+                            "L'OETH.",
+                            "La CUFPA.",
+                            "La CSA."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "La <strong>Contribution Unique à la Formation Professionnelle et à l'Alternance (CUFPA)</strong> regroupe la CFP et la Taxe d'Apprentissage."
+                    },
+                    {
+                        question: "La Participation des Employeurs à l'Effort de Construction (PEEC) est due par les employeurs d'au moins combien de salariés ?",
+                        options: [
+                            "11 salariés.",
+                            "20 salariés.",
+                            "50 salariés.",
+                            "250 salariés."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "La <strong>PEEC</strong> (dispositif 1% logement) est due par les employeurs d'au moins <strong>50 salariés</strong>, tous établissements confondus."
+                    },
+                    {
+                        question: "Vrai ou Faux : La Taxe d'Apprentissage est une cotisation sociale.",
+                        options: [
+                            "Vrai.",
+                            "Faux."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "<strong>Faux</strong>. La Taxe d'Apprentissage est un <strong>impôt</strong> (et non une cotisation sociale), dû par les entreprises afin de financer l'apprentissage ainsi que les formations technologiques et professionnelles."
+                    },
+                    {
+                        question: "Quelle contribution est due par les entreprises de plus de 20 salariés qui ne respectent pas l'obligation d'emploi de 6% de travailleurs handicapés ?",
+                        options: [
+                            "La CFP.",
+                            "La PEEC.",
+                            "La CSA.",
+                            "L'OETH."
+                        ],
+                        correctAnswer: 3,
+                        explanation: "C'est la <strong>Contribution annuelle à l'Obligation d'Emploi des Travailleurs Handicapés (OETH)</strong> qui est due par ces entreprises."
+                    },
+                    {
+                        question: "Le taux de la Contribution à la Formation Professionnelle (CFP) pour une entreprise de moins de 11 salariés est de :",
+                        options: [
+                            "0,55%",
+                            "1%",
+                            "1,30%",
+                            "2%"
+                        ],
+                        correctAnswer: 0,
+                        explanation: "Le taux de la CFP pour une entreprise de moins de 11 salariés est de <strong>0,55%</strong>."
+                    }
+                ],
+                "essentiel-cotisations": [
+                    {
+                        question: "Les cotisations sociales ont pour objectif de financer :",
+                        options: [
+                            "Uniquement les salaires des dirigeants.",
+                            "Les prestations sociales.",
+                            "Les impôts des entreprises.",
+                            "Les dividendes des actionnaires."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Les cotisations sociales ont pour objectif de financer les <strong>prestations sociales</strong>, garantissant la protection des travailleurs et de leurs familles."
+                    },
+                    {
+                        question: "Vrai ou Faux : Le forfait social est une cotisation uniquement à la charge des salariés.",
+                        options: [
+                            "Vrai.",
+                            "Faux."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "<strong>Faux</strong>. Le forfait social est une cotisation <strong>uniquement à la charge de l'employeur</strong> (charge patronale)."
+                    },
+                    {
+                        question: "Quel est l'organisme qui collecte les cotisations de sécurité sociale (maladie, vieillesse, famille, accidents du travail) ?",
+                        options: [
+                            "L'AGIRC-ARRCO.",
+                            "La CAF.",
+                            "L'URSSAF.",
+                            "France Travail."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "L'<strong>URSSAF</strong> est l'organisme chargé de collecter les cotisations de sécurité sociale."
+                    },
+                    {
+                        question: "Les cotisations AGIRC-ARRCO financent :",
+                        options: [
+                            "L'assurance maladie.",
+                            "Les allocations familiales.",
+                            "La retraite complémentaire obligatoire.",
+                            "L'assurance chômage."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "Les cotisations <strong>AGIRC-ARRCO</strong> financent la <strong>retraite complémentaire obligatoire</strong> pour tous les salariés du secteur privé."
+                    },
+                    {
+                        question: "La CUFPA, la PEEC et l'OETH sont des exemples de :",
+                        options: [
+                            "Cotisations salariales.",
+                            "Contributions patronales annuelles.",
+                            "Prestations sociales.",
+                            "Réductions de cotisations."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "La CUFPA, la PEEC et l'OETH sont des exemples de <strong>contributions patronales annuelles</strong>, concourant au financement de la formation, du logement ou de l'emploi des travailleurs handicapés."
+                    }
+                ],
+                "final-quiz": [ 
+                    {
+                        question: "Quel est l'objectif principal des cotisations sociales ?",
+                        options: [
+                            "Augmenter le bénéfice des entreprises.",
+                            "Financer les prestations sociales.",
+                            "Réduire le salaire net des employés.",
+                            "Simplifier la gestion de la paie."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Les cotisations sociales ont pour objectif de <strong>financer les prestations sociales</strong>, assurant ainsi une protection aux travailleurs et à leurs familles."
+                    },
+                    {
+                        question: "Quel organisme est chargé de collecter les cotisations de sécurité sociale et de les répartir entre les branches (maladie, vieillesse, famille, AT/MP) ?",
+                        options: [
+                            "France Travail.",
+                            "La CNAV.",
+                            "L'URSSAF.",
+                            "L'AGIRC-ARRCO."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "L'<strong>URSSAF</strong> est l'organisme chargé de collecter et de répartir les cotisations de sécurité sociale."
+                    },
+                    {
+                        question: "Le forfait social à 20% s'applique principalement à :",
+                        options: [
+                            "L'intéressement et la participation des salariés.",
+                            "Les heures supplémentaires.",
+                            "Les indemnités de rupture conventionnelle.",
+                            "Les heures complémentaires."
+                        ],
+                        correctAnswer: 0,
+                        explanation: "Le forfait social au taux de 20% s'applique principalement aux sommes versées au titre de l'<strong>épargne salariale, comme l'intéressement et la participation</strong>. Les heures supplémentaires ou complémentaires sont exonérées de forfait social. Les indemnités de rupture conventionnelle ont un régime spécifique depuis le 1er septembre 2023 et ne sont plus soumises au forfait social à 20%."
+                    },
+                    {
+                        question: "Le taux unique de la cotisation d'allocation familiale est-il égal à 3,45% ?",
+                        options: [
+                            "Vrai.",
+                            "Faux."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "<strong>Faux</strong>. Le taux de la cotisation d'allocation familiale dépend du salaire du collaborateur. Il est réduit à 3,45% lorsque sa rémunération brute est inférieure ou égale à 3,5 x le SMIC annuel. Au-delà, une majoration de 1,80% s'applique, portant le taux à 5,25%."
+                    },
+                    {
+                        question: "Quelle est la participation minimale de l'employeur à la cotisation de mutuelle santé obligatoire ?",
+                        options: [
+                            "25% de la cotisation.",
+                            "40% de la cotisation.",
+                            "50% de la cotisation.",
+                            "75% de la cotisation."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "La participation financière de l'employeur à la mutuelle santé obligatoire doit être au moins égale à <strong>50% de la cotisation</strong>."
+                    },
+                    {
+                        question: "Quelle contribution patronale finance le développement de la formation professionnelle et de l'apprentissage ?",
+                        options: [
+                            "La PEEC.",
+                            "L'OETH.",
+                            "La CUFPA.",
+                            "La CRDS."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "La <strong>Contribution Unique à la Formation Professionnelle et à l'Alternance (CUFPA)</strong> finance le développement de la formation professionnelle et de l'apprentissage."
+                    }
+                ]
+            };
+
+            // --- Learning Section State ---
+            // Define all sections and their order
+            let currentLearningSectionId = 'introduction'; 
+            const sectionOrder = [
+                'introduction',
+                'cotisations-urssaf',
+                'cotisations-agirc-arrco',
+                'mutuelle-prevoyance',
+                'contributions-patronales-annuelles',
+                'essentiel-cotisations'
+            ];
+            const sectionCompletion = {
+                "introduction": false,
+                "cotisations-urssaf": false,
+                "cotisations-agirc-arrco": false,
+                "mutuelle-prevoyance": false,
+                "contributions-patronales-annuelles": false,
+                "essentiel-cotisations": false
+            };
+
+            // --- Mini-Quiz State ---
+            let currentActiveQuizType = null; 
+            let currentQuizQuestionIndex = 0;
+            let miniQuizCorrectAnswersCount = 0;
+            let currentQuizQuestionsSet = []; 
+
+            // --- UI Elements ---
+            const learningSections = document.querySelectorAll('.learning-section');
+            const quizContainer = document.getElementById('quiz-container');
+            const quizQuestionElement = document.getElementById('quiz-question');
+            const quizOptionsElement = document.getElementById('quiz-options');
+            const quizFeedbackElement = document.getElementById('quiz-feedback');
+            const quizExplanationElement = document.getElementById('explanation-text'); 
+            const explanationTextElement = document.getElementById('explanation-text');
+            const submitButton = document.getElementById('submit-answer');
+            const nextButton = document.getElementById('next-question');
+            const startFinalQuizBtn = document.getElementById('start-final-quiz-btn');
+            const finalQuizSection = document.getElementById('final-quiz-section');
+            const finalQuizIntro = document.getElementById('final-quiz-intro');
+
+            // --- Progress Bar Elements ---
+            const dotIntroduction = document.getElementById('dot-introduction');
+            const dotCotisationsUrssaf = document.getElementById('dot-cotisations-urssaf');
+            const dotCotisationsAgircArrco = document.getElementById('dot-cotisations-agirc-arrco');
+            const dotMutuellePrevoyance = document.getElementById('dot-mutuelle-prevoyance');
+            const dotContributionsPatronalesAnnuelles = document.getElementById('dot-contributions-patronales-annuelles');
+            const dotEssentielCotisations = document.getElementById('dot-essentiel-cotisations');
+            const dotFinalQuiz = document.getElementById('dot-final-quiz');
+
+            const lineIntroduction = document.getElementById('line-introduction');
+            const lineCotisationsUrssaf = document.getElementById('line-cotisations-urssaf');
+            const lineCotisationsAgircArrco = document.getElementById('line-cotisations-agirc-arrco');
+            const lineMutuellePrevoyance = document.getElementById('line-mutuelle-prevoyance');
+            const lineContributionsPatronalesAnnuelles = document.getElementById('line-contributions-patronales-annuelles');
+            const lineEssentielCotisations = document.getElementById('line-essentiel-cotisations');
+
+            const progressDots = {
+                "introduction": dotIntroduction,
+                "cotisations-urssaf": dotCotisationsUrssaf,
+                "cotisations-agirc-arrco": dotCotisationsAgircArrco,
+                "mutuelle-prevoyance": dotMutuellePrevoyance,
+                "contributions-patronales-annuelles": dotContributionsPatronalesAnnuelles,
+                "essentiel-cotisations": dotEssentielCotisations,
+                "final-quiz": dotFinalQuiz
+            };
+            const progressLines = {
+                "introduction": lineIntroduction,
+                "cotisations-urssaf": lineCotisationsUrssaf,
+                "cotisations-agirc-arrco": lineCotisationsAgircArrco,
+                "mutuelle-prevoyance": lineMutuellePrevoyance,
+                "contributions-patronales-annuelles": lineContributionsPatronalesAnnuelles,
+                "essentiel-cotisations": lineEssentielCotisations
+            };
+
+
+            // --- Functions ---
+
+            function updateProgressBar() {
+                sectionOrder.forEach((sectionId, index) => {
+                    const dot = progressDots[sectionId];
+                    const line = progressLines[sectionId]; // Line *after* the dot
+
+                    if (sectionCompletion[sectionId]) {
+                        dot.classList.add('completed');
+                        dot.classList.remove('active');
+                        if (line) line.classList.add('completed');
+                    } else if (sectionId === currentLearningSectionId) {
+                        dot.classList.add('active');
+                        dot.classList.remove('completed');
+                    } else {
+                        dot.classList.remove('active', 'completed');
+                        if (line) line.classList.remove('completed');
+                    }
+                });
+
+                // Final quiz dot
+                const allSectionsCompleted = sectionOrder.every(id => sectionCompletion[id]);
+                if (allSectionsCompleted) {
+                    progressDots["final-quiz"].classList.add('active'); // Indicate it's ready
+                } else {
+                    progressDots["final-quiz"].classList.remove('active');
+                }
+            }
+
+            function updateLearningSectionStates() {
+                console.log('updateLearningSectionStates called. currentLearningSectionId:', currentLearningSectionId);
+                learningSections.forEach(section => {
+                    const sectionId = section.id;
+                    const summarySpan = section.querySelector('summary span');
+                    const validateBtn = section.querySelector('.validate-section-btn');
+                    const miniQuizArea = section.querySelector('.mini-quiz-area');
+                    const detailsElement = section.querySelector('details');
+
+                    if (sectionId === currentLearningSectionId) {
+                        section.classList.remove('section-locked');
+                        section.style.borderColor = 'var(--accent-dark-color)';
+                        if (summarySpan) summarySpan.style.color = 'var(--accent-dark-color)';
+                        if (miniQuizArea) miniQuizArea.classList.remove('hidden');
+                        if (detailsElement) detailsElement.open = true; // Open active section
+                        // validateBtn is hidden by default in HTML, so no need to hide it here initially.
+                        // It will be shown only when mini-quiz is 100% correct.
+
+                        // Automatically start mini-quiz for the active section if not completed
+                        if (!sectionCompletion[sectionId] && allQuizQuestions[sectionId] && allQuizQuestions[sectionId].length > 0) {
+                            console.log(`Starting mini-quiz for section: ${sectionId}`);
+                            startMiniQuiz(sectionId);
+                        } else if (sectionCompletion[sectionId]) {
+                            // If somehow active but already completed, hide quiz area
+                            if (miniQuizArea) miniQuizArea.classList.add('hidden');
+                        }
+
+                    } else if (sectionCompletion[sectionId]) {
+                        section.classList.remove('section-locked');
+                        section.style.borderColor = '#388E3C'; /* Dark green for completed */
+                        if (summarySpan) summarySpan.style.color = '#388E3C';
+                        if (miniQuizArea) miniQuizArea.classList.add('hidden');
+                        if (validateBtn) validateBtn.classList.add('hidden'); // Ensure hidden if completed
+                        if (detailsElement) detailsElement.open = false; // Close completed section
+                    } else {
+                        section.classList.add('section-locked');
+                        section.style.borderColor = '#CBD5E0'; /* Gray for locked */
+                        if (summarySpan) summarySpan.style.color = '#607D8B';
+                        if (miniQuizArea) miniQuizArea.classList.add('hidden');
+                        if (validateBtn) validateBtn.classList.add('hidden'); // Ensure hidden if locked
+                        if (detailsElement) detailsElement.open = false; // Keep locked sections closed
+                    }
+                });
+
+                // Check if final quiz should be unlocked
+                const allSectionsCompleted = sectionOrder.every(id => sectionCompletion[id]);
+                if (allSectionsCompleted) {
+                    finalQuizSection.classList.remove('section-locked');
+                    finalQuizSection.style.borderColor = 'var(--accent-dark-color)';
+                    finalQuizIntro.textContent = "Félicitations ! Toutes les sections ont été validées. Vous êtes prêt pour le Quiz Final ! 🎉";
+                    startFinalQuizBtn.classList.remove('hidden');
+                } else {
+                    finalQuizSection.classList.add('section-locked');
+                    finalQuizSection.style.borderColor = '#CBD5E0'; /* Gray for locked */
+                    finalQuizIntro.textContent = "Validez toutes les sections précédentes pour débloquer le Quiz Final. 💡";
+                    startFinalQuizBtn.classList.add('hidden');
+                }
+
+                updateProgressBar();
+            }
+
+            function loadQuizQuestion(quizSet, containerElementId) {
+                currentQuizQuestionsSet = quizSet;
+                const questionData = currentQuizQuestionsSet[currentQuizQuestionIndex];
+                const container = document.getElementById(containerElementId);
+                const totalQuestions = currentQuizQuestionsSet.length;
+
+                container.innerHTML = `
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Question ${currentQuizQuestionIndex + 1} sur ${totalQuestions} : ${questionData.question}</h3>
+                    <div class="space-y-3 mb-6" id="${containerElementId}-options"></div>
+                    <div class="p-4 rounded-lg text-sm hidden" id="${containerElementId}-feedback"></div>
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg text-sm text-gray-700 hidden" id="${containerElementId}-explanation">
+                        <h4 class="font-bold mb-2">Explication Détaillée 🧐</h4>
+                        <p id="${containerElementId}-explanation-text"></p>
+                    </div>
+                    <div class="mt-6 flex justify-between">
+                        <button class="submit-quiz-answer-btn py-2 px-4 text-white rounded-lg font-semibold hover:opacity-90 transition" style="background-color: var(--accent-dark-color);">Valider la réponse ✅</button>
+                        <button class="next-quiz-question-btn py-2 px-4 bg-gray-300 text-gray-800 rounded-lg font-semibold hover:bg-gray-400 transition hidden">Question suivante ➡️</button>
+                    </div>
+                `;
+
+                const optionsContainer = document.getElementById(`${containerElementId}-options`);
+                questionData.options.forEach((option, index) => {
+                    const div = document.createElement('div');
+                    div.className = 'quiz-option';
+                    div.innerHTML = `
+                        <input type="radio" id="${containerElementId}-option${index}" name="${containerElementId}-answer" value="${index}" class="hidden">
+                        <label for="${containerElementId}-option${index}" class="block p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-100 transition">${option}</label>
+                    `;
+                    optionsContainer.appendChild(div);
+                });
+
+                // Add event listener for radio button changes to update visual feedback
+                optionsContainer.querySelectorAll('input[type="radio"]').forEach(radio => {
+                    radio.addEventListener('change', (event) => {
+                        optionsContainer.querySelectorAll('label').forEach(label => {
+                            label.classList.remove('selected-option-visual'); // Remove from all
+                            label.style.backgroundColor = ''; // Reset background
+                            label.style.color = ''; // Reset text color
+                        });
+                        if (event.target.checked) {
+                            const selectedLabel = optionsContainer.querySelector(`label[for="${event.target.id}"]`);
+                            selectedLabel.classList.add('selected-option-visual'); // Add class for visual feedback
+                            selectedLabel.style.backgroundColor = 'var(--accent-dark-color)'; // Apply dark accent
+                            selectedLabel.style.color = '#FFFFFF'; // Apply white text
+                        }
+                    });
+                });
+
+                // Attach event listeners for the new buttons
+                container.querySelector('.submit-quiz-answer-btn').addEventListener('click', () => submitQuizAnswer(containerElementId));
+                container.querySelector('.next-quiz-question-btn').addEventListener('click', () => nextQuizQuestion(containerElementId));
+            }
+
+            function submitQuizAnswer(containerElementId) {
+                console.log(`Submitting quiz answer for ${containerElementId}. Question index: ${currentQuizQuestionIndex}`);
+                const container = document.getElementById(containerElementId);
+                const selectedOption = container.querySelector(`input[name="${containerElementId}-answer"]:checked`);
+                const feedbackElement = container.querySelector(`#${containerElementId}-feedback`);
+                const explanationElement = container.querySelector(`#${containerElementId}-explanation`);
+                const explanationText = container.querySelector(`#${containerElementId}-explanation-text`);
+                const submitBtn = container.querySelector('.submit-quiz-answer-btn');
+                const nextBtn = container.querySelector('.next-quiz-question-btn');
+                const validateSectionBtn = document.querySelector(`#${currentActiveQuizType} .validate-section-btn`); 
+
+                // Reset visual feedback for all options
+                container.querySelectorAll('.quiz-option label').forEach(label => {
+                    label.classList.remove('selected-option-visual');
+                    label.style.backgroundColor = ''; // Reset background
+                    label.style.color = ''; // Reset text color
+                });
+
+
+                if (!selectedOption) {
+                    feedbackElement.textContent = "Veuillez sélectionner une réponse.";
+                    feedbackElement.className = 'p-4 rounded-lg text-sm bg-yellow-100 text-yellow-800';
+                    feedbackElement.classList.remove('hidden');
+                    return;
+                }
+
+                const selectedAnswerIndex = parseInt(selectedOption.value);
+                const questionData = currentQuizQuestionsSet[currentQuizQuestionIndex];
+
+                // Disable all radio buttons after submission
+                container.querySelectorAll(`input[name="${containerElementId}-answer"]`).forEach(radio => radio.disabled = true);
+
+                let isCorrect;
+                if (Array.isArray(questionData.correctAnswer)) {
+                    const selectedOptions = Array.from(container.querySelectorAll(`input[name="${containerElementId}-answer"]:checked`)).map(input => parseInt(input.value));
+                    isCorrect = questionData.correctAnswer.length === selectedOptions.length &&
+                                questionData.correctAnswer.every(val => selectedOptions.includes(val));
+                } else {
+                    isCorrect = (selectedAnswerIndex === questionData.correctAnswer);
+                }
+
+                if (isCorrect) {
+                    feedbackElement.textContent = "Correct ! 🎉";
+                    feedbackElement.className = 'quiz-feedback correct p-4 rounded-lg text-sm';
+                    miniQuizCorrectAnswersCount++;
+                } else {
+                    feedbackElement.textContent = `Incorrect. La bonne réponse était : "${Array.isArray(questionData.correctAnswer) ? questionData.correctAnswer.map(idx => questionData.options[idx]).join(', ') : questionData.options[questionData.correctAnswer]}". 😔`;
+                    feedbackElement.className = 'quiz-feedback incorrect p-4 rounded-lg text-sm';
+                }
+                feedbackElement.classList.remove('hidden');
+
+                explanationText.innerHTML = questionData.explanation;
+                explanationElement.classList.remove('hidden');
+                
+                submitBtn.classList.add('hidden');
+
+                // Logic for showing Next Question or Validate Section / Retry buttons
+                if (currentQuizQuestionIndex === currentQuizQuestionsSet.length - 1) {
+                    console.log("This is the last question of the mini-quiz.");
+                    nextBtn.classList.add('hidden'); // Hide next question button on last question
+                    
+                    if (miniQuizCorrectAnswersCount === currentQuizQuestionsSet.length) {
+                        console.log("All questions correct. Showing Validate Section button.");
+                        if (validateSectionBtn) validateSectionBtn.classList.remove('hidden');
+                        document.getElementById(containerElementId).innerHTML += `<p class="text-green-700 font-semibold mt-4">Mini-quiz réussi à 100% ! Vous pouvez valider cette section. ✅</p>`;
+                    } else {
+                        console.log("Not all questions correct. Showing Retry button.");
+                        document.getElementById(containerElementId).innerHTML += `
+                            <p class="text-red-700 font-semibold mb-4 mt-4">Mini-quiz non réussi (${miniQuizCorrectAnswersCount}/${currentQuizQuestionsSet.length} bonnes réponses). Veuillez réessayer pour valider la section. 😔</p>
+                            <button class="retry-mini-quiz-btn py-2 px-4 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition" data-section="${currentActiveQuizType}">Réessayer le Mini-Quiz 🔄</button>
+                        `;
+                        document.getElementById(containerElementId).querySelector('.retry-mini-quiz-btn').addEventListener('click', (e) => {
+                            startMiniQuiz(e.target.dataset.section);
+                        });
+                    }
+                } else {
+                    nextBtn.classList.remove('hidden'); // Show next question button if not last
+                }
+            }
+
+            function nextQuizQuestion(containerElementId) {
+                console.log(`Moving to next quiz question for ${containerElementId}. Current index: ${currentQuizQuestionIndex}`);
+                currentQuizQuestionIndex++;
+                // Only load next question if there are more questions in the current set
+                if (currentQuizQuestionIndex < currentQuizQuestionsSet.length) {
+                    loadQuizQuestion(currentQuizQuestionsSet, containerElementId);
+                } else {
+                    // This block should ideally not be reached if submitQuizAnswer handles the last question correctly
+                    // However, to prevent any unexpected behavior, we ensure quiz state is reset here.
+                    console.warn("nextQuizQuestion reached end of quiz, but submitQuizAnswer should have handled this.");
+                }
+            }
+
+            function startMiniQuiz(sectionId) {
+                console.log(`Starting mini-quiz for section: ${sectionId}`);
+                currentActiveQuizType = sectionId;
+                currentQuizQuestionIndex = 0;
+                miniQuizCorrectAnswersCount = 0;
+
+                // Hide learning content, show mini-quiz area
+                const detailsElement = document.querySelector(`#${sectionId} details`);
+                if (detailsElement) detailsElement.open = false; // Close content
+                const miniQuizArea = document.querySelector(`#${sectionId} .mini-quiz-area`);
+                if (miniQuizArea) miniQuizArea.classList.remove('hidden');
+                
+                loadQuizQuestion(allQuizQuestions[sectionId], `mini-quiz-${sectionId}-container`);
+            }
+
+            function validateSection(sectionId) {
+                console.log(`Validating section: ${sectionId}`);
+                sectionCompletion[sectionId] = true;
+                const sectionIndex = sectionOrder.indexOf(sectionId);
+                
+                // Hide mini-quiz area and validate button
+                const miniQuizArea = document.querySelector(`#${sectionId} .mini-quiz-area`);
+                if (miniQuizArea) miniQuizArea.classList.add('hidden');
+                const validateBtn = document.querySelector(`#${sectionId} .validate-section-btn`);
+                if (validateBtn) validateBtn.classList.add('hidden');
+
+                // Reset quiz state for the section that was just validated
+                currentActiveQuizType = null; 
+                currentQuizQuestionIndex = 0; 
+                miniQuizCorrectAnswersCount = 0; 
+
+                updateLearningSectionStates(); // Update UI for current and next sections
+
+                // Unlock next section if exists
+                if (sectionIndex < sectionOrder.length - 1) {
+                    currentLearningSectionId = sectionOrder[sectionIndex + 1];
+                    console.log(`Next section to unlock: ${currentLearningSectionId}`);
+                    updateLearningSectionStates(); // Re-run to unlock the next one
+                    // Open the newly unlocked section's details
+                    const nextSectionDetails = document.querySelector(`#${currentLearningSectionId} details`);
+                    if (nextSectionDetails) nextSectionDetails.open = true;
+                } else {
+                    console.log("All sections completed. Final quiz should be active.");
+                }
+            }
+
+            function startFinalQuiz() {
+                console.log("Starting final quiz.");
+                currentActiveQuizType = 'final-quiz'; 
+                currentQuizQuestionIndex = 0;
+                miniQuizCorrectAnswersCount = 0; 
+
+                finalQuizIntro.classList.add('hidden');
+                startFinalQuizBtn.classList.add('hidden');
+                quizContainer.classList.remove('hidden');
+
+                loadQuizQuestion(allQuizQuestions["final-quiz"], 'quiz-container'); 
+            }
+
+
+            // --- Event Listeners ---
+
+            // Initial setup for learning sections
+            updateLearningSectionStates();
+
+            // Start mini-quiz for the first section on load
+            if (currentLearningSectionId === 'introduction') {
+                startMiniQuiz('introduction');
+            }
+            
+            // Attach listeners to "Valider la Section" buttons
+            document.querySelectorAll('.validate-section-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    validateSection(e.target.dataset.section);
+                });
+            });
+
+            // Attach listener for the final quiz start button
+            startFinalQuizBtn.addEventListener('click', startFinalQuiz);
+
+        });
+    </script>
+</body>
+</html>
