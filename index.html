@@ -160,7 +160,7 @@
                         <p>L'URSSAF (Union de Recouvrement des Cotisations de Sécurité Sociale et Allocations Familiales) est chargée de collecter les cotisations sociales salariales et patronales qui concernent les cotisations de sécurité sociale. Elle les répartit ensuite entre les quatre branches de la Sécurité Sociale : la maladie, la vieillesse, la famille et les accidents de travail / maladies professionnelles (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</p>
 
                         <h3 class="font-semibold text-lg mt-4">B. Cotisation Assurance Maladie, Maternité, Décès :</h3>
-                        <p>Finance les indemnités journalières (arrêt maladie, maternité), les remboursements de frais médicaux et les pensions d'invalidité. Le taux est de <span class="highlight-update">7 % pour les rémunérations $\le 2,5 \times$ SMIC annuel, et de 13 % pour les rémunérations $> 2,5 \times$ SMIC annuel</span> (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/lassurance-maladie.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</p>
+                        <p>Finance les indemnités journalières (arrêt maladie, maternité), les remboursements de frais médicaux et les pensions d'invalidité. Le taux est de <span class="highlight-update">7 % pour les rémunérations inférieures ou égales à 2,5 fois le SMIC annuel, et de 13 % pour les rémunérations supérieures à 2,5 fois le SMIC annuel</span> (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/lassurance-maladie.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</p>
                         <div class="overflow-x-auto my-2">
                             <table class="min-w-full bg-white border border-gray-200 rounded-md shadow-sm text-sm">
                                 <thead>
@@ -172,8 +172,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td class="py-2 px-4 border-b">Rémunération $\le 2,5$ SMIC</td><td class="py-2 px-4 border-b">0 %</td><td class="py-2 px-4 border-b">7,00 %</td><td class="py-2 px-4 border-b">7,00 %</td></tr>
-                                    <tr><td class="py-2 px-4 border-b">Rémunération $> 2,5$ SMIC</td><td class="py-2 px-4 border-b">0 %</td><td class="py-2 px-4 border-b">13,00 %</td><td class="py-2 px-4 border-b">13,00 %</td></tr>
+                                    <tr><td class="py-2 px-4 border-b">Rémunération \le 2,5 SMIC</td><td class="py-2 px-4 border-b">0 %</td><td class="py-2 px-4 border-b">7,00 %</td><td class="py-2 px-4 border-b">7,00 %</td></tr>
+                                    <tr><td class="py-2 px-4 border-b">Rémunération > 2,5 SMIC</td><td class="py-2 px-4 border-b">0 %</td><td class="py-2 px-4 border-b">13,00 %</td><td class="py-2 px-4 border-b">13,00 %</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -185,7 +185,7 @@
                         <p>Finance le régime de retraite de base (CNAV). Calculée sur deux bases : rémunération déplafonnée (<span class="highlight-update">0,40 % salariale / 2,02 % patronale</span>) et rémunération plafonnée (<span class="highlight-update">6,90 % salariale / 8,55 % patronale</span>) (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/lassurance-vieillesse.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</p>
 
                         <h3 class="font-semibold text-lg mt-4">E. Cotisation Allocation Familiale :</h3>
-                        <p>Finance les prestations versées par la CAF. Le taux réduit (<span class="highlight-update">3,45 %</span>) s'applique aux rémunérations $\le 3,5 \times$ SMIC annuel. Au-delà, le taux est de <span class="highlight-update">5,25 % (3,45 % + 1,80 % complément)</span> (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/les-allocations-familiales.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</p>
+                        <p>Finance les prestations versées par la CAF. Le taux réduit (<span class="highlight-update">3,45 %</span>) s'applique aux rémunérations inférieures ou égales à 3,5 fois le SMIC annuel. Au-delà, le taux est de <span class="highlight-update">5,25 % (3,45 % + 1,80 % complément)</span> (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/les-allocations-familiales.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</p>
 
                         <h3 class="font-semibold text-lg mt-4">F. Cotisation Accidents du Travail :</h3>
                         <p>Finance les indemnités journalières en cas d'accident du travail/maladie professionnelle. Le taux est déterminé par la CARSAT et dépend de l'effectif et de l'activité de l'entreprise (tarification forfaitaire, mixte ou réelle) (<a href="https://www.ameli.fr/entreprise/vos-demarches/cotisations-accidents-travail-maladies-professionnelles/connaitre-taux-cotisation" target="_blank" class="text-blue-600 hover:underline">Source : Ameli.fr</a>).</p>
@@ -206,10 +206,10 @@
                         <p>Contributions uniquement salariales déduites du salaire brut. La CSG finance l'assurance maladie, prestations familiales, etc. La CRDS finance la Caisse d'Amortissement de la Dette Sociale. Elles s'appliquent sur le salaire brut abattu de <span class="highlight-update">1,75 %</span> (dans certaines limites) (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/la-csg-crds.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</p>
 
                         <h3 class="font-semibold text-lg mt-4">O. Cotisation Assurance Chômage :</h3>
-                        <p>Cotisation uniquement patronale (<span class="highlight-update">4,05 %</span> sur salaire brut, limité à 4x PMSS) finançant les indemnités chômage versées par France Travail. Un système de "bonus-malus" peut moduler ce taux (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/lassurance-chomage.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</p>
+                        <p>Cotisation uniquement patronale (<span class="highlight-update">4,05 %</span> sur salaire brut, limité à 4 fois le PMSS) finançant les indemnités chômage versées par France Travail. Un système de "bonus-malus" peut moduler ce taux (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/lassurance-chomage.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</p>
 
                         <h3 class="font-semibold text-lg mt-4">P. Cotisation AGS :</h3>
-                        <p>Cotisation purement patronale (<span class="highlight-update">0,25 %</span> sur salaire brut, limité à 4x PMSS) finançant l'assurance de garantie des salaires, qui permet de rémunérer les salariés en cas de défaillance de l'entreprise (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/lags.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</p>
+                        <p>Cotisation purement patronale (<span class="highlight-update">0,25 %</span> sur salaire brut, limité à 4 fois le PMSS) finançant l'assurance de garantie des salaires, qui permet de rémunérer les salariés en cas de défaillance de l'entreprise (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/lags.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</p>
                     </div>
                 </details>
                 <div class="mini-quiz-area mt-6 p-4 rounded-lg" style="background-color: var(--accent-light-color);" id="mini-quiz-cotisations-urssaf">
@@ -260,7 +260,7 @@
                         <h3 class="font-semibold text-lg mt-4">C. Cotisations AGIRC-ARRCO pour les salariés cadres (en plus) :</h3>
                         <ul class="list-disc list-inside ml-4">
                             <li>La <strong>cotisation prévoyance Assurance décès cadre</strong> (<a href="https://www.agirc-arrco.fr/particuliers/comprendre-ma-retraite/les-garanties-prevoyance-des-cadres" target="_blank" class="text-blue-600 hover:underline">Article 4 et 4 bis de la convention collective nationale de retraite et de prévoyance des cadres du 14 mars 1947</a>) : obligatoire, minimum de <span class="highlight-update">1,50 % sur le salaire plafonné (part patronale uniquement)</span>. Finance un capital décès pour les ayants droit.</li>
-                            <li>La <strong>cotisation APEC</strong> (Association Pour l'Emploi des Cadres) : cotisation mensuelle (<span class="highlight-update">0,036 % employeur / 0,024 % salarié</span>) prélevée sur les salaires des cadres, limitée à 4x PMSS (<a href="https://www.apec.fr/recruteur/recruter-cadres/cotisations-apec.html" target="_blank" class="text-blue-600 hover:underline">Source : APEC</a>).</li>
+                            <li>La <strong>cotisation APEC</strong> (Association Pour l'Emploi des Cadres) : cotisation mensuelle (<span class="highlight-update">0,036 % employeur / 0,024 % salarié</span>) prélevée sur les salaires des cadres, limitée à 4 fois le PMSS (<a href="https://www.apec.fr/recruteur/recruter-cadres/cotisations-apec.html" target="_blank" class="text-blue-600 hover:underline">Source : APEC</a>).</li>
                         </ul>
                     </div>
                 </details>
@@ -322,7 +322,7 @@
                         <h3 class="font-semibold text-lg mt-4">A. Contributions de la Formation Professionnelle et de l'Apprentissage :</h3>
                         <p>Regroupées sous la <strong>Contribution Unique à la Formation Professionnelle et à l'Alternance (CUFPA)</strong>, elles comprennent :</p>
                         <ul class="list-disc list-inside ml-4">
-                            <li>La <strong>Contribution à la Formation Professionnelle (CFP)</strong> : finance la formation continue des salariés et demandeurs d'emploi. Taux variable selon la taille de l'entreprise (<span class="highlight-update">ex: 0,55 % pour -11 salariés, 1 % pour +11 salariés</span>) (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/la-contribution-a-la-formation-p.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</li>
+                            <li>La <strong>Contribution à la Formation Professionnelle (CFP)</strong> : finance la formation continue des salariés et demandeurs d'emploi. Taux variable selon la taille de l'entreprise (<span class="highlight-update">ex: 0,55 % pour moins de 11 salariés, 1 % pour 11 salariés et plus</span>) (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/la-contribution-a-la-formation-p.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</li>
                             <li>La <strong>Contribution CPF-CDD</strong> : due en cas d'emploi de salariés en CDD (<span class="highlight-update">1 % de la masse salariale</span>), sauf exceptions (contrats aidés, saisonniers) (<a href="https://www.service-public.fr/professionnels-entreprises/vosdroits/F32085" target="_blank" class="text-blue-600 hover:underline">Source : Service-Public.fr</a>).</li>
                             <li>La <strong>Taxe d'Apprentissage (TA)</strong> : impôt finançant l'apprentissage et les formations technologiques/professionnelles (<span class="highlight-update">0,68 % de la masse salariale annuelle brute, sauf Alsace-Moselle où c'est 0,44 %</span>) (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/la-taxe-dapprentissage.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</li>
                             <li>La <strong>Contribution Supplémentaire à l'Apprentissage (CSA)</strong> : due par les entreprises de 250 salariés et plus qui emploient moins de 5% d'alternants. Le taux varie selon le pourcentage d'alternants (<a href="https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/la-contribution-supplementaire-a-l.html" target="_blank" class="text-blue-600 hover:underline">Source : URSSAF</a>).</li>
@@ -498,16 +498,16 @@
                         explanation: "L'URSSAF collecte plusieurs cotisations sociales, notamment l'<strong>assurance vieillesse</strong> pour la retraite de base, la cotisation familiale, ou la cotisation chômage. La cotisation de prévoyance est quant à elle généralement collectée par la caisse de prévoyance."
                     },
                     {
-                        question: "Le taux de la cotisation d'allocation familiale est-il toujours de 3,45% ?",
+                        question: "Le taux de la cotisation d'allocation familiale est-il toujours de 3,45 % ?",
                         options: [
                             "Vrai.",
                             "Faux."
                         ],
                         correctAnswer: 1,
-                        explanation: "<strong>Faux</strong>. Le taux de la cotisation d'allocation familiale dépend du salaire du collaborateur. Il est réduit à 3,45% lorsque sa rémunération brute est inférieure ou égale à 3,5 x le SMIC annuel. Au-delà, une majoration de 1,80% s'applique, portant le taux à 5,25%."
+                        explanation: "<strong>Faux</strong>. Le taux de la cotisation d'allocation familiale dépend du salaire du collaborateur. Il est réduit à 3,45 % lorsque sa rémunération brute est inférieure ou égale à 3,5 fois le SMIC annuel. Au-delà, une majoration de 1,80 % s'applique, portant le taux à 5,25 %."
                     },
                     {
-                        question: "Le forfait social à 20% s'applique principalement à :",
+                        question: "Le forfait social au taux de 20 % s'applique principalement à :",
                         options: [
                             "L'intéressement et la participation des salariés.",
                             "Les heures supplémentaires.",
@@ -515,7 +515,7 @@
                             "Les heures complémentaires."
                         ],
                         correctAnswer: 0,
-                        explanation: "Le forfait social au taux de 20 % s'applique principalement aux sommes versées au titre de l'<strong>épargne salariale, comme l'intéressement et la participation</strong>. Les heures supplémentaires ou complémentaires sont exonérées de forfait social. Les indemnités de rupture conventionnelle ont un régime spécifique depuis le 1er septembre 2023 et ne sont plus soumises au forfait social au taux de 20%."
+                        explanation: "Le forfait social au taux de 20 % s'applique principalement aux sommes versées au titre de l'<strong>épargne salariale, comme l'intéressement et la participation</strong>. Les heures supplémentaires ou complémentaires sont exonérées de forfait social. Les indemnités de rupture conventionnelle ont un régime spécifique depuis le 1er septembre 2023 et ne sont plus soumises au forfait social au taux de 20 %."
                     },
                     {
                         question: "Vrai ou Faux : La Contribution Sociale Généralisée (CSG) est une contribution uniquement patronale.",
@@ -771,7 +771,7 @@
                         explanation: "L'<strong>URSSAF</strong> est l'organisme chargé de collecter et de répartir les cotisations de sécurité sociale."
                     },
                     {
-                        question: "Le forfait social à 20% s'applique principalement à :",
+                        question: "Le forfait social au taux de 20 % s'applique principalement à :",
                         options: [
                             "L'intéressement et la participation des salariés.",
                             "Les heures supplémentaires.",
@@ -779,16 +779,16 @@
                             "Les heures complémentaires."
                         ],
                         correctAnswer: 0,
-                        explanation: "Le forfait social au taux de 20% s'applique principalement aux sommes versées au titre de l'<strong>épargne salariale, comme l'intéressement et la participation</strong>. Les heures supplémentaires ou complémentaires sont exonérées de forfait social. Les indemnités de rupture conventionnelle ont un régime spécifique depuis le 1er septembre 2023 et ne sont plus soumises au forfait social à 20%."
+                        explanation: "Le forfait social au taux de 20 % s'applique principalement aux sommes versées au titre de l'<strong>épargne salariale, comme l'intéressement et la participation</strong>. Les heures supplémentaires ou complémentaires sont exonérées de forfait social. Les indemnités de rupture conventionnelle ont un régime spécifique depuis le 1er septembre 2023 et ne sont plus soumises au forfait social au taux de 20 %."
                     },
                     {
-                        question: "Le taux unique de la cotisation d'allocation familiale est-il égal à 3,45% ?",
+                        question: "Le taux unique de la cotisation d'allocation familiale est-il égal à 3,45 % ?",
                         options: [
                             "Vrai.",
                             "Faux."
                         ],
                         correctAnswer: 1,
-                        explanation: "<strong>Faux</strong>. Le taux de la cotisation d'allocation familiale dépend du salaire du collaborateur. Il est réduit à 3,45% lorsque sa rémunération brute est inférieure ou égale à 3,5 x le SMIC annuel. Au-delà, une majoration de 1,80% s'applique, portant le taux à 5,25%."
+                        explanation: "<strong>Faux</strong>. Le taux de la cotisation d'allocation familiale dépend du salaire du collaborateur. Il est réduit à 3,45 % lorsque sa rémunération brute est inférieure ou égale à 3,5 fois le SMIC annuel. Au-delà, une majoration de 1,80 % s'applique, portant le taux à 5,25 %."
                     },
                     {
                         question: "Quelle est la participation minimale de l'employeur à la cotisation de mutuelle santé obligatoire ?",
